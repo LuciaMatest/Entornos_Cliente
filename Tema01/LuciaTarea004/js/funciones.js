@@ -8,7 +8,7 @@ try {
     let radio = 4;
     console.log(`El area del circulo con radio ${radio} es ${area_circulo(radio)}`);
 } catch (error) {
-    alert("FALLO");
+    console.log("FALLO");
 }
 
 /*Perimetro de una circunferencia*/
@@ -20,7 +20,7 @@ try {
     let radio = 5.6;
     console.log(`El perimetro del circulo con radio ${radio} es ${peri_circulo(radio)}`);
 } catch (error) {
-    alert("FALLO");
+    console.log("FALLO");
 }
 
 /*Perimetro de un poligono regular*/
@@ -33,7 +33,7 @@ try {
     let lados = 5;
     console.log(`El perimetro de un poligono con ${lados} lados con longitud ${long} es ${peri_poligono(long, lados)}`);
 } catch (error) {
-    alert("FALLO");
+    console.log("FALLO");
 }
 
 /*Area de un poligono regular*/
@@ -49,5 +49,5 @@ try {
     let lados = 5;
     console.log(`El area de un poligono con ${lados} lados y longitud ${long} es ${area_poligono(long, lados)}`);
 } catch (error) {
-    alert("FALLO");
+    console.log("FALLO");
 }
