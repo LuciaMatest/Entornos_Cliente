@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div class='container' id="cabecera" style="text-align: center;">
+        <h1>&nbsp;</h1>
+        <h1>Calculadora</h1>
+    </div>
+    <div class='container' style="text-align: center;">
+        <form id='calcular'>
+            <div class='mb-2'>
+                <label for='primero'>Primer valor</label>
+                <input type="number" class='form-control' id='primero' step=1 />
+            </div>
+            <div class='mb-3'>
+                <label for='segundo'>Segundo valor</label>
+                <input type="number" class="form-control" id='segundo'step="any" />
+            </div>
+        </form>
+        <button class='btn btn-primary mb-3' onclick='suma()'>
+            Suma
+        </button>
+        <!-- <button class='btn btn-primary mb-3' onclick='resta()'>
+            Resta
+        </button>
+        <button class='btn btn-primary mb-3' onclick='dividir()'>
+            División
+        </button>
+        <button class='btn btn-primary mb-3' onclick='multiplicar()'>
+            Multiplicación
+        </button> -->
+        <div class='mb-3'>
+            <label for="resultado">Resultado</label>
+            <input type="text" class='form-control' id='resultado' disabled>
+        </div>
+    </div>
+    <div class='container' id='pie' style="text-align: center;">
+        <p> Daw2Cliente - Lucia Mateos Esteban</p>
+    </div>
+    <script src="js/funciones.js"></script>
+</body>
+</html>
