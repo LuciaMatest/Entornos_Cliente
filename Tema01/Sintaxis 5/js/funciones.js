@@ -17,3 +17,4 @@ const eliminado1= a.pop();
 a.pop();
 a.push(eliminado1);
 console.log(a);
+
