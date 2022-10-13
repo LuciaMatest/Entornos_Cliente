@@ -1,30 +1,72 @@
 console.log('Calculadora');
 
-function suma(){
-    const calcular = document.getElementById('calcular');
-    let p = parseInt(calcular['primero'].value);
-    let s = parseFloat(calcular['segundo'].value);
+function sumar(v1,v2) {
+    if ((isNaN(v1)) || (isNaN(v2))) {throw new Error("Vuelve a intentarlo")}
 
-    let resultado = parseFloat(p) * parseFloat(s);
-    if (n==NaN) throw 'Incorrecto';
-    document.getElementById('resultado').value = `${resultado}`;
-    console.log(`Resultado: ${resultado}`);
+    return parseInt(v1+v2);
 }
 
-// function resta(){
-//     const forma = document.getElementById('calcular');
-//     let p = parseFloat(calcular['primero'].value);
-//     let s = parseFloat(calcular['segundo'].value);
-// }
+function restar(v1,v2) {
+    if ((isNaN(v1)) || (isNaN(v2))) {throw new Error("Vuelve a intentarlo")}
+    return v1-v2;
+}
+function dividir(v1,v2) {
+    if ((isNaN(v1)) || (isNaN(v2))) {
+        throw new Error("Vuelve a intentarlo");
+    } else if(v2>v1){
+        throw new Error("El divisor es mayor que el dividendo");
+    } else if(v2==0){
+        throw new Error("La división entre cero no posee un valor definido");
+    }
+    return v1/v2;
+}
+function multiplicar(v1,v2) {
+    if ((isNaN(v1)) || (isNaN(v2))) {throw new Error("Vuelve a intentarlo");}
+    return v1*v2;
+}
 
-// function dividir(){
-//     const forma = document.getElementById('calcular');
-//     let p = parseFloat(calcular['primero'].value);
-//     let s = parseFloat(calcular['segundo'].value);
-// }
+//
+function operacionSuma() {
+    const forma=document.getElementById('calcular');
+    const v1 = parseInt(calcular['primero'].value);
+    const v2 = parseInt(calcular['segundo'].value);
+    
+    try {
+        document.getElementById('resultado').value=`${suma(v1,v2)}`;                
+    } catch (error) {
+        document.getElementById('resultado').value=error;
+    }
+}
 
-// function multiplicar(){
-//     const forma = document.getElementById('calcular');
-//     let p = parseFloat(calcular['primero'].value);
-//     let s = parseFloat(calcular['segundo'].value);
-// }
+function operacionResta() {
+    const forma=document.getElementById('calcular');
+    const v1 = parseInt(calcular['primero'].value);
+    const v2 = parseInt(calcular['segundo'].value);
+    try {
+        document.getElementById('resultado').value=`${resta(v1,v2)}`;                
+    } catch (error) {
+        document.getElementById('resultado').value=error;
+    }
+}
+function operacionDividir() {
+    const forma=document.getElementById('calcular');
+    const v1 = parseInt(calcular['primero'].value);
+    const v2 = parseInt(calcular['segundo'].value);
+
+    try {
+        document.getElementById('resultado').value=`${division(v1,v2)}`;                
+    } catch (error) {
+        document.getElementById('resultado').value=error;
+    }
+}
+function operacionMultiplicar() {
+    const forma=document.getElementById('calcular');
+    const v1 = parseInt(calcular['primero'].value);
+    const v2 = parseInt(calcular['segundo'].value);
+
+    try {
+        document.getElementById('resultado').value=`${multiplicacion(v1,v2)}`;                
+    } catch (error) {
+        document.getElementById('resultado').value=error;
+    }
+}
