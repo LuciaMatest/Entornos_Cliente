@@ -6,7 +6,7 @@ function sumar(v1,v2) {
     return parseInt(v1+v2);
 }
 
-function suma() {
+function opSuma() {
     const forma=document.getElementById('calcular');
     const v1 = parseInt(calcular['primero'].value);
     const v2 = parseInt(calcular['segundo'].value);
@@ -23,7 +23,7 @@ function restar(v1,v2) {
     return v1-v2;
 }
 
-function resta() {
+function opResta() {
     const forma=document.getElementById('calcular');
     const v1 = parseInt(calcular['primero'].value);
     const v2 = parseInt(calcular['segundo'].value);
@@ -39,7 +39,7 @@ function multiplicar(v1,v2) {
     return v1*v2;
 }
 
-function multiplicar() {
+function opMultiplicar() {
     const forma=document.getElementById('calcular');
     const v1 = parseInt(calcular['primero'].value);
     const v2 = parseInt(calcular['segundo'].value);
@@ -62,7 +62,7 @@ function dividir(v1,v2) {
     return v1/v2;
 }
 
-function dividir() {
+function opDividir() {
     const forma=document.getElementById('calcular');
     const v1 = parseInt(calcular['primero'].value);
     const v2 = parseInt(calcular['segundo'].value);
