@@ -6,27 +6,7 @@ function sumar(v1,v2) {
     return parseInt(v1+v2);
 }
 
-function restar(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {throw new Error("Vuelve a intentarlo")}
-    return v1-v2;
-}
-function dividir(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {
-        throw new Error("Vuelve a intentarlo");
-    } else if(v2>v1){
-        throw new Error("El divisor es mayor que el dividendo");
-    } else if(v2==0){
-        throw new Error("La división entre cero no posee un valor definido");
-    }
-    return v1/v2;
-}
-function multiplicar(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {throw new Error("Vuelve a intentarlo");}
-    return v1*v2;
-}
-
-//
-function operacionSuma() {
+function suma() {
     const forma=document.getElementById('calcular');
     const v1 = parseInt(calcular['primero'].value);
     const v2 = parseInt(calcular['segundo'].value);
@@ -38,7 +18,12 @@ function operacionSuma() {
     }
 }
 
-function operacionResta() {
+function restar(v1,v2) {
+    if ((isNaN(v1)) || (isNaN(v2))) {throw new Error("Vuelve a intentarlo")}
+    return v1-v2;
+}
+
+function resta() {
     const forma=document.getElementById('calcular');
     const v1 = parseInt(calcular['primero'].value);
     const v2 = parseInt(calcular['segundo'].value);
@@ -48,24 +33,42 @@ function operacionResta() {
         document.getElementById('resultado').value=error;
     }
 }
-function operacionDividir() {
-    const forma=document.getElementById('calcular');
-    const v1 = parseInt(calcular['primero'].value);
-    const v2 = parseInt(calcular['segundo'].value);
 
-    try {
-        document.getElementById('resultado').value=`${dividir(v1,v2)}`;                
-    } catch (error) {
-        document.getElementById('resultado').value=error;
-    }
+function multiplicar(v1,v2) {
+    if ((isNaN(v1)) || (isNaN(v2))) {throw new Error("Vuelve a intentarlo");}
+    return v1*v2;
 }
-function operacionMultiplicar() {
+
+function multiplicar() {
     const forma=document.getElementById('calcular');
     const v1 = parseInt(calcular['primero'].value);
     const v2 = parseInt(calcular['segundo'].value);
 
     try {
         document.getElementById('resultado').value=`${multiplicar(v1,v2)}`;                
+    } catch (error) {
+        document.getElementById('resultado').value=error;
+    }
+}
+
+function dividir(v1,v2) {
+    if ((isNaN(v1)) || (isNaN(v2))) {
+        throw new Error("Vuelve a intentarlo");
+    } else if(v2>v1){
+        throw new Error("El divisor es mayor que el dividendo");
+    } else if(v2==0){
+        throw new Error("La división entre cero no posee un valor definido");
+    }
+    return v1/v2;
+}
+
+function dividir() {
+    const forma=document.getElementById('calcular');
+    const v1 = parseInt(calcular['primero'].value);
+    const v2 = parseInt(calcular['segundo'].value);
+
+    try {
+        document.getElementById('resultado').value=`${dividir(v1,v2)}`;                
     } catch (error) {
         document.getElementById('resultado').value=error;
     }
