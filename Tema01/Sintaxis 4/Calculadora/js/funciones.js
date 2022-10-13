@@ -19,7 +19,7 @@ function opSuma() {
 }
 
 function restar(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {throw new Error("Vuelve a intentarlo")}
+    if ((isNaN(v1)) || (isNaN(v2))) {throw ("Vuelve a intentarlo")}
     return v1-v2;
 }
 
@@ -35,7 +35,7 @@ function opResta() {
 }
 
 function multiplicar(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {throw new Error("Vuelve a intentarlo");}
+    if ((isNaN(v1)) || (isNaN(v2))) {throw ("Vuelve a intentarlo");}
     return v1*v2;
 }
 
@@ -53,11 +53,11 @@ function opMultiplicar() {
 
 function dividir(v1,v2) {
     if ((isNaN(v1)) || (isNaN(v2))) {
-        throw new Error("Vuelve a intentarlo");
+        throw ("Vuelve a intentarlo");
     } else if(v2>v1){
-        throw new Error("El divisor es mayor que el dividendo");
+        throw ("El divisor es mayor que el dividendo");
     } else if(v2==0){
-        throw new Error("La división entre cero no posee un valor definido");
+        throw ("La división entre cero no posee un valor definido");
     }
     return v1/v2;
 }
