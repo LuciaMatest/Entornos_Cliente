@@ -1,7 +1,7 @@
 console.log('Calculadora');
 
 function sumar(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {throw ("NaN")}
+    if ((isNaN(v1)) || (isNaN(v2))) {throw ("No es un número")}
 
     return parseFloat(v1+v2);
 }
@@ -19,7 +19,7 @@ function opSuma() {
 }
 
 function restar(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {throw ("NaN")}
+    if ((isNaN(v1)) || (isNaN(v2))) {throw ("No es un número")}
     return v1-v2;
 }
 
@@ -35,7 +35,7 @@ function opResta() {
 }
 
 function multiplicar(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {throw ("NaN");}
+    if ((isNaN(v1)) || (isNaN(v2))) {throw ("No es un número");}
     return v1*v2;
 }
 
@@ -53,7 +53,7 @@ function opMultiplicar() {
 
 function dividir(v1,v2) {
     if ((isNaN(v1)) || (isNaN(v2))) {
-        throw ("NaN");
+        throw ("No es un número");
     } else if(v2>v1){
         throw ("El divisor es mayor que el dividendo");
     } else if(v2==0){
