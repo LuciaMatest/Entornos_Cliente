@@ -32,7 +32,7 @@ function operacionSuma() {
     const v2 = parseInt(calcular['segundo'].value);
     
     try {
-        document.getElementById('resultado').value=`${suma(v1,v2)}`;                
+        document.getElementById('resultado').value=`${sumar(v1,v2)}`;                
     } catch (error) {
         document.getElementById('resultado').value=error;
     }
@@ -43,7 +43,7 @@ function operacionResta() {
     const v1 = parseInt(calcular['primero'].value);
     const v2 = parseInt(calcular['segundo'].value);
     try {
-        document.getElementById('resultado').value=`${resta(v1,v2)}`;                
+        document.getElementById('resultado').value=`${restar(v1,v2)}`;                
     } catch (error) {
         document.getElementById('resultado').value=error;
     }
@@ -54,7 +54,7 @@ function operacionDividir() {
     const v2 = parseInt(calcular['segundo'].value);
 
     try {
-        document.getElementById('resultado').value=`${division(v1,v2)}`;                
+        document.getElementById('resultado').value=`${dividir(v1,v2)}`;                
     } catch (error) {
         document.getElementById('resultado').value=error;
     }
@@ -65,7 +65,7 @@ function operacionMultiplicar() {
     const v2 = parseInt(calcular['segundo'].value);
 
     try {
-        document.getElementById('resultado').value=`${multiplicacion(v1,v2)}`;                
+        document.getElementById('resultado').value=`${multiplicar(v1,v2)}`;                
     } catch (error) {
         document.getElementById('resultado').value=error;
     }
