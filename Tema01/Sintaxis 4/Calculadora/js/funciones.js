@@ -1,15 +1,15 @@
 console.log('Calculadora');
 
 function sumar(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {throw new Error("Vuelve a intentarlo")}
+    if ((isNaN(v1)) || (isNaN(v2))) {throw ("NaN")}
 
-    return parseInt(v1+v2);
+    return parseFloat(v1+v2);
 }
 
 function opSuma() {
     const forma=document.getElementById('calcular');
-    const v1 = parseInt(calcular['primero'].value);
-    const v2 = parseInt(calcular['segundo'].value);
+    const v1 = parseFloat(calcular['primero'].value);
+    const v2 = parseFloat(calcular['segundo'].value);
     
     try {
         document.getElementById('resultado').value=`${sumar(v1,v2)}`;                
@@ -19,14 +19,14 @@ function opSuma() {
 }
 
 function restar(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {throw ("Vuelve a intentarlo")}
+    if ((isNaN(v1)) || (isNaN(v2))) {throw ("NaN")}
     return v1-v2;
 }
 
 function opResta() {
     const forma=document.getElementById('calcular');
-    const v1 = parseInt(calcular['primero'].value);
-    const v2 = parseInt(calcular['segundo'].value);
+    const v1 = parseFloat(calcular['primero'].value);
+    const v2 = parseFloat(calcular['segundo'].value);
     try {
         document.getElementById('resultado').value=`${restar(v1,v2)}`;                
     } catch (error) {
@@ -35,14 +35,14 @@ function opResta() {
 }
 
 function multiplicar(v1,v2) {
-    if ((isNaN(v1)) || (isNaN(v2))) {throw ("Vuelve a intentarlo");}
+    if ((isNaN(v1)) || (isNaN(v2))) {throw ("NaN");}
     return v1*v2;
 }
 
 function opMultiplicar() {
     const forma=document.getElementById('calcular');
-    const v1 = parseInt(calcular['primero'].value);
-    const v2 = parseInt(calcular['segundo'].value);
+    const v1 = parseFloat(calcular['primero'].value);
+    const v2 = parseFloat(calcular['segundo'].value);
 
     try {
         document.getElementById('resultado').value=`${multiplicar(v1,v2)}`;                
@@ -53,7 +53,7 @@ function opMultiplicar() {
 
 function dividir(v1,v2) {
     if ((isNaN(v1)) || (isNaN(v2))) {
-        throw ("Vuelve a intentarlo");
+        throw ("NaN");
     } else if(v2>v1){
         throw ("El divisor es mayor que el dividendo");
     } else if(v2==0){
@@ -64,8 +64,8 @@ function dividir(v1,v2) {
 
 function opDividir() {
     const forma=document.getElementById('calcular');
-    const v1 = parseInt(calcular['primero'].value);
-    const v2 = parseInt(calcular['segundo'].value);
+    const v1 = parseFloat(calcular['primero'].value);
+    const v2 = parseFloat(calcular['segundo'].value);
 
     try {
         document.getElementById('resultado').value=`${dividir(v1,v2)}`;                
