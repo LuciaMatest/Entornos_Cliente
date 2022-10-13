@@ -1,0 +1,76 @@
+'use strict';
+console.log('App para área y perímetro de un polígono');
+
+function calcularPerimetroPoligono(n, l){
+    let errorText='';
+    console.log('Num de lados: '+n);
+    console.log('Long de un lado: '+l);
+    if ((isNaN(l) ) || l < 0) {  //No usar: if ((l==NaN ) || l < 0)
+        errorText += 'Longitud del Lado incorrecta. ';
+    } 
+    
+    if ((isNaN(n)) || (n < 3) ) { //no usar 
+        errorText += 'Número de Lados incorrecto. ';
+    }
+
+    console.log(errorText);
+    if (errorText != '') throw errorText;
+
+    return parseFloat(n*l);
+}
+
+//Aquí No tratamos el texto del error porque ya lo hacemos en calcularPerimetroPoligono()
+function calcularAreaPoligono(n, l){  
+    const alfa= (2*Math.PI)/n;
+    const apotema= (l/2)/ Math.tan((alfa/2));
+    return(l*n*apotema)/2;
+}
+
+function calcularPerimetroCircunferencia(r){
+    console.log('Radio: '+r);    
+    if(isNaN(r) || (r<0)) throw ('Valor del radio incorrecto');
+    return parseFloat(2 * Math.PI * r);
+}
+
+function calcularAreaCirculo(r){
+    return parseFloat(Math.PI * r * r);
+}
+
+function calcularA(){
+    const forma = document.getElementById('formA');
+    const n = parseInt(forma['lados'].value);
+    const l = parseFloat(forma['longitud'].value);
+
+    try {
+        document.getElementById('perimetroA').value = `${calcularPerimetroPoligono(n,l)}`;
+        console.log(`Perímetro Polígono: ${calcularPerimetroPoligono(n,l)}`);
+
+        document.getElementById('areaA').value = `${calcularAreaPoligono(n,l)}`;
+        console.log(`Perímetro Polígono: ${calcularAreaPoligono(n,l)}`);
+    } catch (error) {
+        console.log(error); //advertencia en consola
+        //window.alert(error); //advertencia en ventana (no se recomienda)
+        document.getElementById('perimetroA').style.color='red';
+        document.getElementById('perimetroA').value=error; //advertencia en formulario (recomendado)
+        document.getElementById('perimetroA').value=error;
+    }
+}
+
+function calcularB(){
+    const formb = document.getElementById('formB');
+    const r = parseFloat(formb['radio'].value);
+    
+    try {
+        document.getElementById('perimetroB').value = `${calcularPerimetroCircunferencia(r)}`;
+        console.log(`Perímetro Círculo: ${calcularPerimetroCircunferencia(r)}`);
+    
+        document.getElementById('areaB').value = `${calcularAreaCirculo(r)}`;
+        console.log(`Perímetro Polígono: ${calcularAreaCirculo(r)}`);    
+    } catch (error) {
+        console.log(error);
+        //window.alert(error);
+        document.getElementById('perimetroB').style.color='red';
+        document.getElementById('perimetroB').value=error; //advertencia en formulario (recomendado)
+        document.getElementById('perimetroB').value=error;
+    }
+}
