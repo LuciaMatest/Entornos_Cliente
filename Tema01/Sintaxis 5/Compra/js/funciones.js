@@ -9,5 +9,3 @@ console.log(frutas);
 
 frutas.splice(1,1, 'Cerezas','Nisperos');
 console.log(frutas);
-
-console.log(frutas);
