@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="estilo/style.css">
     <title>Rombo Hueco</title>
 </head>
 
 <body>
     <div class="figura">
         <h1>Rombo Hueco</h1>
-        <label for="idFilas">Indique cuantas filas tendrá el rombo:</label>
+        <label for="idFilas" class="idFilas">Indique cuantas filas tendrá el rombo:</label>
         <input type="number" name="rombo" id="idFilas" placeholder="Número" value=5 min=1 max=23 onchange="rombo()" />
         <div id="posicion" class="rombo"></div>
     </div>
+    <div id="footer">DAW2 - Lucía Mateos Esteban</div>
     <script src="js/funciones.js"></script>
 </body>
 
