@@ -1,0 +1,41 @@
+body {
+    background-color: gray;
+    background-image: url("./fondo.png");
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.figura {
+    background-color: cornflowerblue;
+    max-width: 600px;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 100px;
+
+}
+
+h1 {
+    padding: 40px;
+}
+
+label.idFilas {
+    font-weight: bold;
+}
+
+#posicion {
+    color: gold;
+    margin: 30px;
+    padding: 30px;
+    text-align: left;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
