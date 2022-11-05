@@ -48,27 +48,3 @@ function rombo() {
         div.innerHTML += "<br>";
     }
 }
-
-function sinFigura() {
-    document.getElementById('figura').classList.remove('figura');
-}
-
-function conFigura() {
-    document.getElementById('figura').classList.add('figura');
-}
-
-function sinTexto() {
-    let texto = Array.from(document.querySelectorAll('#texto'));
-    texto.forEach(elemento => elemento.classList.remove('blanco'));
-}
-function conTexto() {
-    let texto = Array.from(document.querySelectorAll('#texto'));
-    texto.forEach(elemento => elemento.classList.add('blanco'));
-}
-
-function sinRombo() {
-    document.getElementById('aqui').classList.remove('rombo');
-}
-function conRombo() {
-    document.getElementById('aqui').classList.add('rombo');
-}
