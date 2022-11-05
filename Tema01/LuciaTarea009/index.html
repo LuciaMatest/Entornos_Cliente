@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" id="tarea">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo/style.css">
+    <title>Tarea 009</title>
+</head>
+
+<body>
+    <h1>Prueba a hacer doble click en las celdas:</h1>
+    <table id="tabla01" border="2 white" style="margin: auto;">
+        <tr>
+            <td id="azul">A</td>
+            <td id="negro">B</td>
+        </tr>
+        <tr>
+            <td id="crimson">C</td>
+            <td id="dorado">D</td>
+        </tr>
+    </table>
+    <script>
+        //funciones para que cada celda al darle doble click nos ponga el color que queremos 
+        document.getElementById("azul").addEventListener("dblclick", function () {
+            this.style.backgroundColor = "cornflowerblue";
+        });
+        document.getElementById("negro").addEventListener("dblclick", function () {
+            this.style.backgroundColor = "black";
+        });
+        document.getElementById("crimson").addEventListener("dblclick", function () {
+            this.style.backgroundColor = "crimson";
+        });
+        document.getElementById("dorado").addEventListener("dblclick", function () {
+            this.style.backgroundColor = "darkgoldenrod";
+        });
+    </script>
+</body>
+
+</html>
