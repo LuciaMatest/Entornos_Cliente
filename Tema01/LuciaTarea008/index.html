@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" id="">
+<html lang="es" id="tarea">
 
 <head>
     <meta charset="UTF-8">
@@ -10,19 +10,18 @@
 </head>
 
 <body>
-    <div class="figura">
+    <div id="figura">
         <h1 id="texto">Rombo Hueco</h1>
-        <label for="idFilas" class="idFilas" id="texto">Indique cuantas filas tendrá el rombo:</label>
+        <label for="idFilas" id="texto">Indique cuantas filas tendrá el rombo:</label>
         <input type="number" name="rombo" id="idFilas" placeholder="Número" value=5 min=1 max=23 onchange="rombo()" />
-        <div id="posicion" class="rombo"></div>
+        <div id="posicion"></div>
     </div>
-
-    <button onclick="quitarHTML()">Quitar HTML</button>
-    <button onclick="quitarFigura()">Quitar figura</button>
-    <button onclick="quitarTexto()">Quitar texto</button>
-    <button onclick="quitarCSS()">Quitar CSS</button>
-
-    <div id="footer">DAW2 - Lucía Mateos Esteban</div>
+    <div class="botones">
+        <button onclick="quitarHTML()">Quitar HTML</button>
+        <button onclick="quitarFigura()">Quitar figura</button>
+        <button onclick="quitarTexto()">Quitar texto</button>
+        <button onclick="quitarCSS()">Quitar CSS</button>
+    </div>
     <script src="js/funciones.js"></script>
 </body>
 

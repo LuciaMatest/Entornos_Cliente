@@ -1,8 +1,12 @@
-.html {
+.tarea {
     background-color: gray;
     background-image: url("./fondo.png");
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.vacio {
     color: white;
+    padding: 10px; 
 }
 
 .figura {
@@ -16,19 +20,6 @@
 
 }
 
-.vacio {
-    color: white;
-    padding: 10px; 
-}
-
-h1 {
-    padding: 40px;
-}
-
-label.idFilas {
-    font-weight: bold;
-}
-
 .rombo {
     color: gold;
     margin: 30px;
@@ -36,7 +27,7 @@ label.idFilas {
     text-align: left;
 }
 
-#footer {
+.botones {
     position: fixed;
     left: 0;
     bottom: 0;

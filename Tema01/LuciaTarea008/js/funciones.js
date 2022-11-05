@@ -1,5 +1,6 @@
+//----------------------------Funciones para cambiar el CSS ------------------------------//
 function quitarHTML() { 
-    document.getElementById('html').classList.toggle('html');
+    document.getElementById('tarea').classList.toggle('tarea');
 }
 
 function quitarFigura() {
@@ -15,7 +16,7 @@ function quitarCSS() {
     document.getElementById('posicion').classList.toggle('rombo');
 }
 
-
+//-------------------------Función para pintar el rombo ------------------------------------//
 function rombo() {
     let a = parseInt(document.getElementById('idFilas').value);
     let div = document.getElementById('posicion');
