@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="html">
 
 <head>
     <meta charset="UTF-8">
@@ -16,14 +16,11 @@
         <input type="number" name="rombo" id="idFilas" placeholder="Número" value=5 min=1 max=23 onchange="rombo()" />
         <div id="posicion" class="rombo"></div>
     </div>
-    <button onclick="sinFigura()">Sin figura</button>
-    <button onclick="conFigura()">Con figura</button>
-    
-    <button onclick="sinTexto()">Sin texto</button>
-    <button onclick="conTexto()">Con texto</button>
 
-    <button onclick="sinRombo()">Sin CSS</button>
-    <button onclick="conRombo()">Con CSS</button>
+    <button onclick="quitarHTML()">Quitar HTML</button>
+    <button onclick="quitarFigura()">Quitar figura</button>
+    <button onclick="quitarTexto()">Quitar texto</button>
+    <button onclick="quitarCSS()">Quitar CSS</button>
 
     <div id="footer">DAW2 - Lucía Mateos Esteban</div>
     <script src="js/funciones.js"></script>

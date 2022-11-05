@@ -1,4 +1,4 @@
-body {
+.html {
     background-color: gray;
     background-image: url("./fondo.png");
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -16,6 +16,11 @@ body {
 
 }
 
+.vacio {
+    color: white;
+    padding: 10px; 
+}
+
 h1 {
     padding: 40px;
 }
@@ -24,7 +29,7 @@ label.idFilas {
     font-weight: bold;
 }
 
-#posicion {
+.rombo {
     color: gold;
     margin: 30px;
     padding: 30px;

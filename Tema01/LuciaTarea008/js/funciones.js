@@ -1,3 +1,21 @@
+function quitarHTML() { 
+    document.getElementById('html').classList.toggle('html');
+}
+
+function quitarFigura() {
+    document.getElementById('figura').classList.toggle('figura');
+}
+
+function quitarTexto() {
+    let texto = Array.from(document.querySelectorAll('#texto'));
+    texto.forEach(elemento => elemento.classList.toggle('vacio'));
+}
+
+function quitarCSS() {
+    document.getElementById('posicion').classList.toggle('rombo');
+}
+
+
 function rombo() {
     let a = parseInt(document.getElementById('idFilas').value);
     let div = document.getElementById('posicion');
