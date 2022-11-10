@@ -1,0 +1,61 @@
+html {
+  background-color: #2196f3;
+  min-height: 1000px;
+  font-family: "helvetica neue";
+  background: url(fondo.png), #2196f3;
+  background: url(fondo.png),
+    -webkit-gradient(linear, right top, left top, from(#2196f3), to(#009688));
+  background: url(fondo.png),
+    linear-gradient(to left, #2196f3, #009688);
+
+}
+
+.encabezado{
+  width: 50 px;
+  color: white;
+  text-align: center;
+  
+}
+
+#diana{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-color: red;
+  background-color: yellow;
+  border-style: solid;
+  border-radius: 50%;
+
+}
+.intermedio{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 3.5px;
+  left: 3.5px;
+  border-color:  red;
+  background-color: yellow;
+  border-style: solid;
+  border-radius: 50%;
+}
+.interno{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 7px;
+  left: 7px;
+  border-color:  red;
+  background-color: yellow;
+  border-style: solid;
+  border-radius: 50%;
+}
+
+
+.hueco{
+  height: 600px;
+  background-color: antiquewhite;
+}
+.pistola{
+  height: 30px;
+  background-color: aliceblue;
+}
