@@ -3,30 +3,34 @@ let xDiana = 50;
 let cambia = false;
 
 function desplazarDiana() {
-    //Dar la vuelta
-    if (xDiana >= document.documentElement.clientWidth - 60) {
-        velocidad = velocidad * (-1);
-        console.log(velocidad);
-    } else if (xDiana <= 0) {
-        velocidad = velocidad * (-1);
-    }
-    xDiana += velocidad;
-    document.getElementById("diana").style.left = `${xDiana}px`;
+  //Dar la vuelta
+  if (xDiana >= document.documentElement.clientWidth - 60) {
+    velocidad = velocidad * -1;
+    console.log(velocidad);
+  } else if (xDiana <= 0) {
+    velocidad = velocidad * -1;
+  }
+  xDiana += velocidad;
+  document.getElementById("diana").style.left = `${xDiana}px`;
 }
 
-let x = 0;
-let y = 0;
-let flechita = document.getElementById('flecha');
+const ARROW = document.getElementById("flecha");
+let xVelocidadFlecha = 4;
+let yVelocidadFlecha = 18;
+let xFlecha = 0;
+let yFlecha = 0;
 
-function moverFlecha(event){
-    if(event.keyCode == '39'){//derecha
-		x= x + 100;
-		flechita.style.left = x + 'px';
-	}
-
-	if(event.keyCode == '37'){//Izquierda
-		x= x - 100;
-		flechita.style.left = x +'px';	
-	}
+function moverFlecha(event) {
+  console.log("tecla" + event.key);
+  switch (event.key) {
+    case "ArrowLeft":
+      xFlecha -= xVelocidadFlecha;
+      ARROW.style.left = `${xFlecha}px`;
+      break;
+    case "ArrowRight":
+      xFlecha += xVelocidadFlecha;
+      ARROW.style.right = `${xFlecha}px`;
+      break;
+  }
 }
 let intervalDiana = setInterval(desplazarDiana, 50);

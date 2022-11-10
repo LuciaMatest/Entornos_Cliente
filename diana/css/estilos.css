@@ -7,10 +7,11 @@ html {
     -webkit-gradient(linear, right top, left top, from(#2196f3), to(#009688));
   background: url(fondo.png),
     linear-gradient(to left, #2196f3, #009688);
+    margin: 0;
 
 }
 
-.encabezado{
+#encabezado{
   width: 50 px;
   color: white;
   text-align: center;
@@ -52,11 +53,13 @@ html {
 }
 
 
-.espacio{
-  height: 600px;
-  background-color: antiquewhite;
+#espacio{
+  height: 700px;
 }
-.flecha{
-  height: 30px;
-  background-color: aliceblue;
+
+#flecha{
+  height: 50px;
+  font-size: 40px;
+  color: white;
+  text-align: center;
 }
