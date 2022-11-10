@@ -1,33 +1,20 @@
-let diana= document.getElementById("diana");
-console.log(screen.width);
-let fin=true;
+let velocidad = 10;
+let xDiana = 50;
+let cambia = false;
 
-function moverDiana(){
-    //Mover a la derecha
-    if(fin==true){
-        
-        diana.style.left=parseInt(diana.style.left)+20+'px';
-        console.log(diana.style.left);
-        
-        if(parseInt(diana.style.left)>=parseInt(screen.width)){
-            fin=false;
-            console.log("derecha");
-        }
-        
-    //Mover a la izquierda    
-    }else if(fin==false){
-       
-        diana.style.left = parseInt(diana.style.left)-20+'px';
-        console.log(diana.style.left);
-
-        if(parseInt(diana.style.left)==0){
-            fin=true;
-            console.log("Izquierda");
-        }
-    }   
+function desplazarDiana() {
+    //Dar la vuelta
+    if (xDiana >= document.documentElement.clientWidth - 60) {
+        velocidad = velocidad * (-1);
+        console.log(velocidad);
+    } else if (xDiana <= 0) {
+        velocidad = velocidad * (-1);
+    }
+    xDiana += velocidad;
+    document.getElementById("Diana").style.left = `${xDiana}px`;
 }
-window.addEventListener('load',()=>{
-    // diana.style.position="absolute";
-    diana.style.left=0;
-});
-setInterval(moverDiana,500);
+
+function moverFlecha(){
+    // if()
+}
+let intervalDiana = setInterval(desplazarDiana, 50);

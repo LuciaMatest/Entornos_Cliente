@@ -3,18 +3,18 @@ let diametroDiana = 40;
 let velocidadDiana = 10;
 let xDiana = 0;
 function dibujarDiana() {
-  document.getElementById("contenedorDiana").style.position = "absolute";
-  document.getElementById("contenedorDiana").style.width = `${diametroDiana}px`;
+  document.getElementById("Diana").style.position = "absolute";
+  document.getElementById("Diana").style.width = `${diametroDiana}px`;
   document.getElementById(
-    "contenedorDiana"
+    "Diana"
   ).style.height = `${diametroDiana}px`;
-  document.getElementById("contenedorDiana").style.backgroundColor = "yellow";
-  document.getElementById("contenedorDiana").style.border = `${
+  document.getElementById("Diana").style.backgroundColor = "yellow";
+  document.getElementById("Diana").style.border = `${
     diametroDiana / 5
   }px`;
-  document.getElementById("contenedorDiana").style.borderColor = "red";
-  document.getElementById("contenedorDiana").style.borderStyle = "solid";
-  document.getElementById("contenedorDiana").style.borderRadius = "50%";
+  document.getElementById("Diana").style.borderColor = "red";
+  document.getElementById("Diana").style.borderStyle = "solid";
+  document.getElementById("Diana").style.borderRadius = "50%";
 
   document.getElementById("centroDiana").style.position = "absolute";
   document.getElementById("centroDiana").style.width = `${diametroDiana / 2}px`;
@@ -28,7 +28,7 @@ function dibujarDiana() {
 }
 const desplazarDiana = () => {
   xDiana += velocidadDiana;
-  document.getElementById("contenedorDiana").style.left = `${xDiana}px`;
+  document.getElementById("Diana").style.left = `${xDiana}px`;
   if (xDiana + diametroDiana >= document.documentElement.clientWidth - 20) {
     //da la vuelta
     velocidadDiana = velocidadDiana * -1;
@@ -41,19 +41,19 @@ const desplazarDiana = () => {
 };
 
 function dibujarFlecha(ancho, alto, color) {
-  document.getElementById("contenedorFlecha").style.width = `${ancho}px`;
-  document.getElementById("contenedorFlecha").style.height = `${alto}px`;
-  document.getElementById("contenedorFlecha").style.backgroundColor = color;
-  document.getElementById("contenedorFlecha").style.position = "absolute";
-  document.getElementById("contenedorFlecha").style.left = `${
+  document.getElementById("Flecha").style.width = `${ancho}px`;
+  document.getElementById("Flecha").style.height = `${alto}px`;
+  document.getElementById("Flecha").style.backgroundColor = color;
+  document.getElementById("Flecha").style.position = "absolute";
+  document.getElementById("Flecha").style.left = `${
     document.documentElement.clientWidth / 2
   }px`;
 }
 function comenzar() {
   console.log("comenzar");
-  document.getElementById("contenedorHueco").style.height = "400px";
-  document.getElementById("contenedorHueco").style.backgroundColor = "bisque";
-  document.getElementsByTagName("header")[0].style.backgroundColor = "cyan";
+  document.getElementById("Espacio").style.height = "400px";
+  document.getElementById("Espacio").style.backgroundColor = "bisque";
+  document.getElementsByTagName("Encabezado")[0].style.backgroundColor = "cyan";
   dibujarDiana();
   dibujarFlecha(5, 35, "blue");
   const intervalDiana = setInterval(desplazarDiana, 50);
