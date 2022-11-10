@@ -11,10 +11,22 @@ function desplazarDiana() {
         velocidad = velocidad * (-1);
     }
     xDiana += velocidad;
-    document.getElementById("Diana").style.left = `${xDiana}px`;
+    document.getElementById("diana").style.left = `${xDiana}px`;
 }
 
-function moverFlecha(){
-    // if()
+let x = 0;
+let y = 0;
+let flechita = document.getElementById('flecha');
+
+function moverFlecha(event){
+    if(event.keyCode == '39'){//derecha
+		x= x + 100;
+		flechita.style.left = x + 'px';
+	}
+
+	if(event.keyCode == '37'){//Izquierda
+		x= x - 100;
+		flechita.style.left = x +'px';	
+	}
 }
 let intervalDiana = setInterval(desplazarDiana, 50);
