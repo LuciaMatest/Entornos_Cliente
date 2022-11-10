@@ -17,11 +17,10 @@ function desplazarDiana() {
 const ARROW = document.getElementById("flecha");
 let xVelocidadFlecha = 4;
 let yVelocidadFlecha = 18;
-let xFlecha = 0;
+let xFlecha = document.documentElement.clientWidth/2;
 let yFlecha = 0;
 
 function moverFlecha(event) {
-  console.log("tecla" + event.key);
   switch (event.key) {
     case "ArrowLeft":
       xFlecha -= xVelocidadFlecha;
@@ -29,8 +28,10 @@ function moverFlecha(event) {
       break;
     case "ArrowRight":
       xFlecha += xVelocidadFlecha;
-      ARROW.style.right = `${xFlecha}px`;
+      ARROW.style.left += `${xFlecha}px`;
       break;
   }
 }
-let intervalDiana = setInterval(desplazarDiana, 50);
+
+
+let intervalDiana1 = setInterval(desplazarDiana, 50);

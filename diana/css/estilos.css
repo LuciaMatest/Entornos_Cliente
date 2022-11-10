@@ -1,6 +1,6 @@
 html {
   background-color: #2196f3;
-  min-height: 1000px;
+  min-height: 900px;
   font-family: "helvetica neue";
   background: url(fondo.png), #2196f3;
   background: url(fondo.png),
@@ -15,6 +15,7 @@ html {
   width: 50 px;
   color: white;
   text-align: center;
+  padding: 10px;
 }
 
 #diana{
@@ -61,5 +62,4 @@ html {
   height: 50px;
   font-size: 40px;
   color: white;
-  text-align: center;
 }
