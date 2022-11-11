@@ -68,8 +68,9 @@ function desplazarFlecha(){
     flecha.style.top=`${yFlecha}px`;
 
     if (yFlecha <= yDiana) {
-        if (xFlecha === xDiana) {
-            
+        if (xFlecha <= xDiana) {
+            clearInterval(intervalFlecha);
+            clearInterval(intervalDiana);
         }
     }
 }
@@ -78,7 +79,9 @@ const disparar = ()=>{
     disparoEfectuado = true;
     flecha.style.backgroundColor='brown';
     if(sonidoActivado) document.getElementById("audio_cerca").play();
-    intervalFlecha=setInterval(desplazarFlecha, 50);
+    //intervalFlecha=setInterval(desplazarFlecha, 50);
+    desplazarFlecha();
+    console.log('yFlecha: ' + yFlecha);
 }
 function escucharTeclas(evento){
     console.log('tecla: ' + evento.key);
