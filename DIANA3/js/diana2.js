@@ -111,7 +111,18 @@ function escucharTeclas(evento){
                 disparar();
             }  
             break;
+
+        case 'ArrowDown':
+            reiniciar();
     }
+}
+
+function reiniciar() {
+    disparoEfectuado = false;
+    dibujarFlecha(5,35,'blue');
+    flecha.style.top=`${yFlecha}px`
+    intervalDiana=setInterval(desplazarDiana, 50);
+    document.body.addEventListener('keydown', escucharTeclas);
 }
 function comenzar(){
     console.log('comenzar');
