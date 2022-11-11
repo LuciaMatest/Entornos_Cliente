@@ -23,8 +23,9 @@ function dibujarDiana(){
     document.getElementById('contenedorDiana').style.borderColor='red';
     document.getElementById('contenedorDiana').style.borderStyle='solid';
     document.getElementById('contenedorDiana').style.borderRadius='50%';
-    yDiana = parseInt(document.getElementById('contenedorDiana').style.top);
-
+    //yDiana = parseInt(document.getElementById('contenedorDiana').style.top);
+    yDiana = document.getElementById('contenedorDiana').getBoundingClientRect().top;
+    yDiana += diametroDiana/2 + diametroDiana/5;
     document.getElementById('centroDiana').style.position='absolute';
     document.getElementById('centroDiana').style.width=`${diametroDiana/2}px`;
     document.getElementById('centroDiana').style.height=`${diametroDiana/2}px`;
@@ -61,8 +62,16 @@ function desplazarFlecha(){
     if(yFlecha<0){
         yFlecha=500;
         clearInterval(intervalFlecha);
+        // clearInterval(intervalDiana);
+        // comenzar();
     }
     flecha.style.top=`${yFlecha}px`;
+
+    if (yFlecha <= yDiana) {
+        if (xFlecha === xDiana) {
+            
+        }
+    }
 }
 
 const disparar = ()=>{
