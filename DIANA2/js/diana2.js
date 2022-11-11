@@ -11,7 +11,7 @@ let xVelocidadFlecha=4;
 let yVelocidadFlecha=18;
 let xFlecha=0;
 let yFlecha=500;
-
+let yDiana = 0;
 
 
 function dibujarDiana(){
@@ -23,6 +23,7 @@ function dibujarDiana(){
     document.getElementById('contenedorDiana').style.borderColor='red';
     document.getElementById('contenedorDiana').style.borderStyle='solid';
     document.getElementById('contenedorDiana').style.borderRadius='50%';
+    yDiana = parseInt(document.getElementById('contenedorDiana').style.top);
 
     document.getElementById('centroDiana').style.position='absolute';
     document.getElementById('centroDiana').style.width=`${diametroDiana/2}px`;
@@ -55,13 +56,13 @@ function dibujarFlecha(ancho, alto, color){
 
 function desplazarFlecha(){
     yFlecha-=yVelocidadFlecha;
+
     flecha.style.top=`${yFlecha}px`;
-    if (yFlecha < 0) {
-        yFlecha = 500; 
+    if(yFlecha<0){
+        yFlecha=500;
         clearInterval(intervalFlecha);
     }
     flecha.style.top=`${yFlecha}px`;
-    console.log('yFlecha' + yFlecha);
 }
 
 const disparar = ()=>{
@@ -69,7 +70,6 @@ const disparar = ()=>{
     flecha.style.backgroundColor='brown';
     if(sonidoActivado) document.getElementById("audio_cerca").play();
     intervalFlecha=setInterval(desplazarFlecha, 50);
-    //desplazarFlecha();
 }
 function escucharTeclas(evento){
     console.log('tecla: ' + evento.key);
@@ -97,7 +97,7 @@ function comenzar(){
     console.log('comenzar');
     document.getElementById('contenedorHueco').style.height='400px';
     document.getElementById('contenedorHueco').style.backgroundColor='bisque';
-    document.getElementsByTagName('header')[0].style.backgroundColor='cyan';
+    document.getElementsByTagName('header')[0].style.backgroundColor='cadetblue';
     dibujarDiana();
     dibujarFlecha(5,35,'blue');
     flecha.style.top=`${yFlecha}px`
