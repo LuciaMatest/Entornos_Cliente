@@ -68,8 +68,8 @@ const disparar = ()=>{
     disparoEfectuado = true;
     flecha.style.backgroundColor='brown';
     if(sonidoActivado) document.getElementById("audio_cerca").play();
-    //intervalFlecha=setInterval(desplazarFlecha, 50);
-    desplazarFlecha();
+    intervalFlecha=setInterval(desplazarFlecha, 50);
+    //desplazarFlecha();
 }
 function escucharTeclas(evento){
     console.log('tecla: ' + evento.key);
