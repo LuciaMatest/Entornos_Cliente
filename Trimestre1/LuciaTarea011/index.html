@@ -1,22 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es-EN" id="html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo/style.css">
-    <title>Juego de disparo - Tarea 011</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Zombie</title>
 </head>
-
 <body>
-    <header style="text-align: center;">Diana2</header>
-    <div id="contenedorDiana">
-        <div id="centroDiana">pepe</div>
+    <!-- Encabezado -->
+    <header>
+        <h1>Mata al zombie</h1>
+        <!-- Botones -->
+        <div id="botones">
+            <input type="button" value="Reset" onclick="resetear()">
+            <input type="button" value="Mute" id="idMute">
+        </div>
+    </header>
+    <!-- Marcador -->
+    <div id="marcador">
+        <div id="aciertos">Aciertos:</div>
+        <div id="fallos">Fallos:</div>
     </div>
-    <div id="contenedorHueco"></div>
-    <div id="contenedorFlecha"></div>
+    <!-- Diana -->
+    <div class="diana" id="idDiana">
+        <span class="zombie" id="idZombie">&#129503;</span>
+    </div>
+    <!-- Espacio entre la diana y la flecha -->
+    <div class="distancia" id="idDistancia"></div>
+    <hr>
+    <!-- Flecha -->
+    <div class="disparo" id="idDisparo">
+        <span class="cuchillo" id="idCuchillo">&#128298;</span>
+    </div>
+    <!-- Sonidos -->
+    <div style="display:none">
+        <audio id="audio_acierto" class="audio" controls>
+            <source type="audio/wav" src="sonidos/acierto.wav">
+        </audio>
+
+        <audio id="audio_error" class="audio" controls>
+            <source type="audio/wav" src="sonidos/fallo.wav">
+        </audio>
+        
+        <audio id="audio_cerca" class="audio" controls>
+            <source type="audio/wav" src="sonidos/rozar .wav">
+        </audio>
+    </div>
+
     <script src="js/funciones.js"></script>
 </body>
-
 </html>

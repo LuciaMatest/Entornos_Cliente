@@ -1,69 +1,53 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es-EN" id="html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#" type="image/x-icon">
-    <title>Document</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <title>Zombie</title>
 </head>
-
 <body>
+    <!-- Encabezado -->
     <header>
-        <h1> Diana</h1>
+        <h1>Mata al zombie</h1>
+        <!-- Botones -->
+        <div id="botones">
+            <input type="button" value="Reset" onclick="resetear()">
+            <input type="button" value="Mute" id="idMute">
+        </div>
     </header>
-
-    <!-- Contador de aciertos y fallos -->
-    <div id="contador">
-        <div id="aciertos"></div>
-        <div id="fallos"></div>
+    <!-- Marcador -->
+    <div id="marcador">
+        <div id="aciertos">Aciertos:</div>
+        <div id="fallos">Fallos:</div>
     </div>
-    
     <!-- Diana -->
-    <div id="contenedorDiana">
-        <div id="centroDiana"></div>
+    <div class="diana" id="idDiana">
+        <span class="zombie" id="idZombie">&#129503;</span>
     </div>
-
+    <!-- Espacio entre la diana y la flecha -->
+    <div class="distancia" id="idDistancia"></div>
+    <hr>
     <!-- Flecha -->
-    <div id="contenedorHueco">
-        <div id="contenedorFlecha"></div>
+    <div class="disparo" id="idDisparo">
+        <span class="cuchillo" id="idCuchillo">&#128298;</span>
     </div>
-
     <!-- Sonidos -->
     <div style="display:none">
         <audio id="audio_acierto" class="audio" controls>
-            <source type="audio/wav" src="sonidos/chapa_jp01897.wav ">
+            <source type="audio/wav" src="sonidos/acierto.wav">
         </audio>
 
         <audio id="audio_error" class="audio" controls>
-            <source type="audio/wav" src="sonidos/rozando_pgj01887.wav">
+            <source type="audio/wav" src="sonidos/fallo.wav">
         </audio>
         
         <audio id="audio_cerca" class="audio" controls>
-            <source type="audio/wav" src="sonidos/fallo_pj01699.wav">
+            <source type="audio/wav" src="sonidos/rozar .wav">
         </audio>
     </div>
-    
-    <!-- Botones -->
-    <div id="botones">
-        <input type="button" id="idReset" value="Reset">
 
-        <input type="button" id="idMusicaApagada" value="Off Sound">
-
-        <input type="checkbox" id="idAciertos">
-
-        <label for="velocidadDiana">Velocidad de la diana</label>
-        <input type="number" id="velocidadDiana">
-
-        <label for="diametroDiana">Tamaño de la diana</label>
-        <input type="number" id="diametroDiana">
-
-        <label for="velocidadFlechaHorizontal">Velocidad de la direccion de la flecha</label>
-        <input type="number" id="velocidadFlechaHorizontal">
-    </div>
     <script src="js/funciones.js"></script>
 </body>
-
 </html>

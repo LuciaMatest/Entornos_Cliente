@@ -1,161 +1,148 @@
 'use strict';
-const flecha = document.getElementById('contenedorFlecha');
+/*--------Variables, intervalos y constantes--------*/
+//Constantes
+const ZOMBIE = document.getElementById('idZombie');
+const CUCHILLO = document.getElementById('idCuchillo');
 
 // Intervalos
-let intervalFlecha;
-let intervalDiana;
-// Boleanos
+let intervaloCuchillo;
+let intervaloZombie;
+
+//Booleanos
 let disparoEfectuado = false;
 let sonidoActivado = true;
-// Diana
-let diametroDiana = 40;
-let velocidadDiana = 10;
-let xDiana = 0;
-let yDiana = 0;
-// Flecha
-let xVelocidadFlecha = 4;
-let yVelocidadFlecha = 18;
-let xFlecha = 0;
-let yFlecha = 500;
 
-// Funcion para pintar la diana
-function dibujarDiana() {
-    // Posición de la diana
-    document.getElementById('contenedorDiana').style.position = 'absolute';
-    // Tamaño parte exterior
-    document.getElementById('contenedorDiana').style.width = `${diametroDiana}px`;
-    document.getElementById('contenedorDiana').style.height = `${diametroDiana}px`;
-    // Color interior
-    document.getElementById('contenedorDiana').style.backgroundColor = 'yellow';
-    // Borde
-    document.getElementById('contenedorDiana').style.border = `${diametroDiana / 5}px`;
-    // Color borde
-    document.getElementById('contenedorDiana').style.borderColor = 'maroon';
-    document.getElementById('contenedorDiana').style.borderStyle = 'solid';
-    // Rendondez
-    document.getElementById('contenedorDiana').style.borderRadius = '50%';
+//Diana
+let velocidadZombie = 10;
+let xZombie = 0;
+let yZombie = 0;
 
-    yDiana = document.getElementById('contenedorDiana').getBoundingClientRect().top;
-    yDiana += diametroDiana / 2 + diametroDiana / 5;
+//Flecha
+let xVelocidadCuchillo = 4;
+let yVelocidadCuchillo = 18;
+let xCuchillo = document.documentElement.clientWidth / 2;
+let yCuchillo = 640;
 
-    // Posición del centro de la diana
-    document.getElementById('centroDiana').style.position = 'absolute';
-    // Tamaño parte interior
-    document.getElementById('centroDiana').style.width = `${diametroDiana / 2}px`;
-    document.getElementById('centroDiana').style.height = `${diametroDiana / 2}px`;
-    // Color
-    document.getElementById('centroDiana').style.backgroundColor = 'maroon';
-    // Posición respecto al circulo más grande
-    document.getElementById('centroDiana').style.left = `${diametroDiana / 4}px`;
-    document.getElementById('centroDiana').style.top = `${diametroDiana / 4}px`;
-    // Rendondez
-    document.getElementById('centroDiana').style.borderRadius = '50%';
+//Muertes
+let acierto = 0;
+let fallo = 0;
+let marcadorAciertos = document.getElementById('aciertos');
+let marcadorFallos = document.getElementById('fallos');
+
+/*--------Desplazamiento--------*/
+function posicionar() {
+    yZombie = ZOMBIE.getBoundingClientRect().top;
 }
 
-// Función para desplazar la diana
-const desplazarDiana = () => {
-    xDiana += velocidadDiana;
-    document.getElementById('contenedorDiana').style.left = `${xDiana}px`;
-    document.getElementById('contenedorDiana').style.top = `${yDiana}px`;
+//Desplazar zombie
+const desplazarZombie = () => {
+    xZombie += velocidadZombie;
+    ZOMBIE.style.left = `${xZombie}px`;
 
-    if ((xDiana + diametroDiana) >= document.documentElement.clientWidth - 20) { //da la vuelta
-        velocidadDiana = velocidadDiana * (-1);
+    if ((xZombie + 20) >= document.documentElement.clientWidth - 20) {
+        velocidadZombie = velocidadZombie * (-1);
     }
-    if (xDiana <= 0) { //da la vuelta
-        velocidadDiana = velocidadDiana * (-1);
+    if (xZombie <= 0) {
+        velocidadZombie = velocidadZombie * (-1);
     }
 }
 
-// Funcion para pintar la flecha
-function dibujarFlecha(ancho, alto, color) {
-    // Tamaño flecha
-    document.getElementById('contenedorFlecha').style.width = `${ancho}px`;
-    document.getElementById('contenedorFlecha').style.height = `${alto}px`;
-    // Color
-    document.getElementById('contenedorFlecha').style.backgroundColor = color;
-    // Posicion
-    document.getElementById('contenedorFlecha').style.position = 'absolute';
-    xFlecha = document.documentElement.clientWidth / 2;
-    document.getElementById('contenedorFlecha').style.left = `${xFlecha}px`;
-}
+//Desplazar cuchillo
+function desplazarCuchillo() {
+    yCuchillo -= yVelocidadCuchillo;
+    CUCHILLO.style.top = `${yCuchillo}px`;
 
-// Función para desplazar la flecha
-function desplazarFlecha() {
-    yFlecha -= yVelocidadFlecha;
-    flecha.style.top = `${yFlecha}px`;
-    if (yFlecha < 0) {  //ha llegado arriba
-        yFlecha = 500;
-        clearInterval(intervalFlecha);
-        clearInterval(intervalDiana);
-        //comenzar();
+    if (yCuchillo < 0) {
+        clearInterval(intervaloCuchillo);
+        yCuchillo = 640;
+        fallarZombie();
+        comenzar();
     }
-    flecha.style.top = `${yFlecha}px`;
 
-    if ((yFlecha <= (yDiana + diametroDiana / 2 + diametroDiana / 5)) && (yFlecha >= yDiana)) { //Flecha llega a la altura de la diana
-        if ((xFlecha >= xDiana) && (xFlecha <= xDiana + diametroDiana)) { //ACIERTO
+    CUCHILLO.style.top = `${yCuchillo}px`;
+
+    if ((yCuchillo <= yZombie) && (yCuchillo >= yZombie)) {
+        if ((xCuchillo >= xZombie) && (xCuchillo <= xZombie)) {
             if (sonidoActivado) document.getElementById("audio_acierto").play();
             clearInterval(intervalFlecha);
             clearInterval(intervalDiana);
+            acertarZombie();
         } else { //FALLO
             if (sonidoActivado) document.getElementById("audio_error").play();
         }
     }
 }
 
-const disparar = () => {
+//Lanzar cuchillo
+const lanzar = () => {
     disparoEfectuado = true;
-    flecha.style.backgroundColor = 'brown';
     if (sonidoActivado) document.getElementById("audio_cerca").play();
-    intervalFlecha = setInterval(desplazarFlecha, 50);
-    console.log('yFlecha: ' + yFlecha);
-
+    intervaloCuchillo = setInterval(desplazarCuchillo, 50);
+    console.log('yCuchillo: ' + yCuchillo);
 }
 
-function escucharTeclas(evento) {
-    console.log('tecla: ' + evento.key);
-    switch (evento.key) {
+//Escuchar teclas
+function escucharTeclas(e) {
+    switch (e.key) {
         case 'ArrowLeft':
-            xFlecha -= xVelocidadFlecha;
-            flecha.style.left = `${xFlecha}px`;
+            xCuchillo -= xVelocidadCuchillo;
+            CUCHILLO.style.left = `${xCuchillo}px`;
             break;
 
         case 'ArrowRight':
-            xFlecha += xVelocidadFlecha;
-            flecha.style.left = `${xFlecha}px`;
-            break;
-
-        case ' ':
-            disparar();
+            xCuchillo += xVelocidadCuchillo;
+            CUCHILLO.style.left = `${xCuchillo}px`;
             break;
 
         case 'ArrowUp':
             if (!disparoEfectuado) {
-                disparar();
+                lanzar();
             }
             break;
 
-        case 'ArrowDown':
-            reiniciar();
+        default:
+            break;
     }
 }
 
-function reiniciar() {
-    disparoEfectuado = false;
-    dibujarFlecha(5, 35, 'cornflowerblue');
-    flecha.style.top = `${yFlecha}px`
-    intervalDiana = setInterval(desplazarDiana, 50);
-    document.body.addEventListener('keydown', escucharTeclas);
+function resetear() {
+    document.getElementById('html').reset();
 }
 
+//Comenzar
 function comenzar() {
     console.log('comenzar');
-    document.getElementById('contenedorHueco').style.height = '400px';
-    document.getElementsByTagName('header')[0].style.backgroundColor = 'cornflowerblue';
-    dibujarDiana();
-    dibujarFlecha(5, 35, 'cornflowerblue');
-    flecha.style.top = `${yFlecha}px`
-    intervalDiana = setInterval(desplazarDiana, 50);
+    CUCHILLO.style.top = `${yCuchillo}px`;
+    CUCHILLO.style.left = `${xCuchillo}px`;
+    intervaloZombie = setInterval(desplazarZombie, 50);
     document.body.addEventListener('keydown', escucharTeclas);
 }
 
 document.addEventListener('load', comenzar());
+
+/*--------Marcador--------*/
+function acertarZombie() {
+    acierto++;
+    marcadorAciertos.innerHTML = `Aciertos: ${acierto}`;
+}
+function fallarZombie() {
+    fallo++;
+    marcadorFallos.innerHTML = `Fallos: ${fallo}`;
+}
+
+/*--------Sonidos--------*/
+let muteSonido = document.getElementById('idMute');
+
+function controlSonido() {
+    if (sonidoActivo) {
+        sonidoActivo = false;
+        muteSonido.value = 'Activar sonido';
+        muteSonido.classList.remove('fallo');
+        muteSonido.classList.add('acierto');
+    } else if (!sonidoActivo) {
+        sonidoActivo = true;
+        muteSonido.value = 'Desactivar sonido';
+        muteSonido.classList.remove('acierto');
+        muteSonido.classList.add('fallo');
+    }
+}
