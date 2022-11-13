@@ -146,11 +146,12 @@ function reiniciar() {
     intervalDiana = setInterval(desplazarDiana, 50);
     document.body.addEventListener('keydown', escucharTeclas);
 }
+
 function comenzar() {
     console.log('comenzar');
     document.getElementById('contenedorHueco').style.height = '400px';
     document.getElementById('contenedorHueco').style.backgroundColor = 'bisque';
-    document.getElementsByTagName('header')[0].style.backgroundColor = 'cyan';
+    document.getElementsByTagName('header')[0].style.backgroundColor = 'cornflowerblue';
     dibujarDiana();
     dibujarFlecha(5, 35, 'blue');
     flecha.style.top = `${yFlecha}px`

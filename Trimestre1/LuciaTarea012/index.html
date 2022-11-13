@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header style="text-align: center;">
+    <header>
         <h1> Diana</h1>
     </header>
 
@@ -21,24 +21,6 @@
         <div id="fallos"></div>
     </div>
     
-    <!-- Botones -->
-    <div id="botones">
-        <input type="button" id="idReset" value="Reset">
-
-        <input type="button" id="idMusicaApagada" value="Off Sound">
-
-        <input type="checkbox" id="idAciertos">
-
-        <label for="velocidadDiana">Velocidad de la diana</label>
-        <input type="number" id="velocidadDiana">
-
-        <label for="diametroDiana">Tamaño de la diana</label>
-        <input type="number" id="diametroDiana">
-
-        <label for="velocidadFlechaHorizontal">Velocidad de la direccion de la flecha</label>
-        <input type="number" id="velocidadFlechaHorizontal">
-    </div>
-
     <!-- Diana -->
     <div id="contenedorDiana">
         <div id="centroDiana"></div>
@@ -58,12 +40,29 @@
         <audio id="audio_error" class="audio" controls>
             <source type="audio/wav" src="sonidos/rozando_pgj01887.wav">
         </audio>
-
+        
         <audio id="audio_cerca" class="audio" controls>
             <source type="audio/wav" src="sonidos/fallo_pj01699.wav">
         </audio>
     </div>
+    
+    <!-- Botones -->
+    <div id="botones">
+        <input type="button" id="idReset" value="Reset">
 
+        <input type="button" id="idMusicaApagada" value="Off Sound">
+
+        <input type="checkbox" id="idAciertos">
+
+        <label for="velocidadDiana">Velocidad de la diana</label>
+        <input type="number" id="velocidadDiana">
+
+        <label for="diametroDiana">Tamaño de la diana</label>
+        <input type="number" id="diametroDiana">
+
+        <label for="velocidadFlechaHorizontal">Velocidad de la direccion de la flecha</label>
+        <input type="number" id="velocidadFlechaHorizontal">
+    </div>
     <script src="js/funciones.js"></script>
 </body>
 
