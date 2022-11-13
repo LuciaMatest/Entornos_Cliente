@@ -23,12 +23,6 @@ let yVelocidadCuchillo = 18;
 let xCuchillo = document.documentElement.clientWidth / 2;
 let yCuchillo = 640;
 
-//Muertes
-let acierto = 0;
-let fallo = 0;
-let marcadorAciertos = document.getElementById('aciertos');
-let marcadorFallos = document.getElementById('fallos');
-
 /*--------Desplazamiento--------*/
 function posicionar() {
     yZombie = ZOMBIE.getBoundingClientRect().top;
@@ -53,30 +47,18 @@ function desplazarCuchillo() {
     CUCHILLO.style.top = `${yCuchillo}px`;
 
     if (yCuchillo < 0) {
-        clearInterval(intervaloCuchillo);
         yCuchillo = 640;
-        fallarZombie();
+        clearInterval(intervaloCuchillo);
+        clearInterval(intervaloZombie);
         comenzar();
     }
 
     CUCHILLO.style.top = `${yCuchillo}px`;
-
-    if ((yCuchillo <= yZombie) && (yCuchillo >= yZombie)) {
-        if ((xCuchillo >= xZombie) && (xCuchillo <= xZombie)) {
-            if (sonidoActivado) document.getElementById("audio_acierto").play();
-            clearInterval(intervalFlecha);
-            clearInterval(intervalDiana);
-            acertarZombie();
-        } else { //FALLO
-            if (sonidoActivado) document.getElementById("audio_error").play();
-        }
-    }
 }
 
 //Lanzar cuchillo
 const lanzar = () => {
     disparoEfectuado = true;
-    if (sonidoActivado) document.getElementById("audio_cerca").play();
     intervaloCuchillo = setInterval(desplazarCuchillo, 50);
     console.log('yCuchillo: ' + yCuchillo);
 }
@@ -119,30 +101,3 @@ function comenzar() {
 }
 
 document.addEventListener('load', comenzar());
-
-/*--------Marcador--------*/
-function acertarZombie() {
-    acierto++;
-    marcadorAciertos.innerHTML = `Aciertos: ${acierto}`;
-}
-function fallarZombie() {
-    fallo++;
-    marcadorFallos.innerHTML = `Fallos: ${fallo}`;
-}
-
-/*--------Sonidos--------*/
-let muteSonido = document.getElementById('idMute');
-
-function controlSonido() {
-    if (sonidoActivo) {
-        sonidoActivo = false;
-        muteSonido.value = 'Activar sonido';
-        muteSonido.classList.remove('fallo');
-        muteSonido.classList.add('acierto');
-    } else if (!sonidoActivo) {
-        sonidoActivo = true;
-        muteSonido.value = 'Desactivar sonido';
-        muteSonido.classList.remove('acierto');
-        muteSonido.classList.add('fallo');
-    }
-}

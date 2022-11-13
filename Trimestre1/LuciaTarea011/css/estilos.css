@@ -12,10 +12,6 @@ header {
     background-color: gray;
 }
 
-#botones {
-    padding: 10px;
-}
-
 #idDiana {
     display: flex;
     flex-flow: row;
@@ -33,7 +29,7 @@ header {
 }
 
 #idDistancia {
-    height: 400px;
+    height: 480px;
 }
 
 #idDisparo {

@@ -11,17 +11,7 @@
     <!-- Encabezado -->
     <header>
         <h1>Mata al zombie</h1>
-        <!-- Botones -->
-        <div id="botones">
-            <input type="button" value="Reset" onclick="resetear()">
-            <input type="button" value="Mute" id="idMute">
-        </div>
     </header>
-    <!-- Marcador -->
-    <div id="marcador">
-        <div id="aciertos">Aciertos:</div>
-        <div id="fallos">Fallos:</div>
-    </div>
     <!-- Diana -->
     <div class="diana" id="idDiana">
         <span class="zombie" id="idZombie">&#129503;</span>
@@ -32,20 +22,6 @@
     <!-- Flecha -->
     <div class="disparo" id="idDisparo">
         <span class="cuchillo" id="idCuchillo">&#128298;</span>
-    </div>
-    <!-- Sonidos -->
-    <div style="display:none">
-        <audio id="audio_acierto" class="audio" controls>
-            <source type="audio/wav" src="sonidos/acierto.wav">
-        </audio>
-
-        <audio id="audio_error" class="audio" controls>
-            <source type="audio/wav" src="sonidos/fallo.wav">
-        </audio>
-        
-        <audio id="audio_cerca" class="audio" controls>
-            <source type="audio/wav" src="sonidos/rozar .wav">
-        </audio>
     </div>
 
     <script src="js/funciones.js"></script>
