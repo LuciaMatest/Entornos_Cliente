@@ -30,7 +30,7 @@ function dibujarDiana() {
     // Borde
     document.getElementById('contenedorDiana').style.border = `${diametroDiana / 5}px`;
     // Color borde
-    document.getElementById('contenedorDiana').style.borderColor = 'red';
+    document.getElementById('contenedorDiana').style.borderColor = 'maroon';
     document.getElementById('contenedorDiana').style.borderStyle = 'solid';
     // Rendondez
     document.getElementById('contenedorDiana').style.borderRadius = '50%';
@@ -44,7 +44,7 @@ function dibujarDiana() {
     document.getElementById('centroDiana').style.width = `${diametroDiana / 2}px`;
     document.getElementById('centroDiana').style.height = `${diametroDiana / 2}px`;
     // Color
-    document.getElementById('centroDiana').style.backgroundColor = 'red';
+    document.getElementById('centroDiana').style.backgroundColor = 'maroon';
     // Posición respecto al circulo más grande
     document.getElementById('centroDiana').style.left = `${diametroDiana / 4}px`;
     document.getElementById('centroDiana').style.top = `${diametroDiana / 4}px`;
@@ -141,7 +141,7 @@ function escucharTeclas(evento) {
 
 function reiniciar() {
     disparoEfectuado = false;
-    dibujarFlecha(5, 35, 'blue');
+    dibujarFlecha(5, 35, 'cornflowerblue');
     flecha.style.top = `${yFlecha}px`
     intervalDiana = setInterval(desplazarDiana, 50);
     document.body.addEventListener('keydown', escucharTeclas);
@@ -150,10 +150,9 @@ function reiniciar() {
 function comenzar() {
     console.log('comenzar');
     document.getElementById('contenedorHueco').style.height = '400px';
-    document.getElementById('contenedorHueco').style.backgroundColor = 'bisque';
     document.getElementsByTagName('header')[0].style.backgroundColor = 'cornflowerblue';
     dibujarDiana();
-    dibujarFlecha(5, 35, 'blue');
+    dibujarFlecha(5, 35, 'cornflowerblue');
     flecha.style.top = `${yFlecha}px`
     intervalDiana = setInterval(desplazarDiana, 50);
     document.body.addEventListener('keydown', escucharTeclas);
