@@ -12,9 +12,7 @@ for (const key in arrayP) {
   element.addEventListener("mouseover", cambiarColor);
   console.log(element);
 }
-
-
-
+//CUADRADO
 let arrayCuadrados = [];
 
 function crearCuadrado(idCuadrado, lado, fondo) {
@@ -28,8 +26,7 @@ function crearCuadrado(idCuadrado, lado, fondo) {
   );
   nuevoCuadrado.style.height = `${lado}px`;
   nuevoCuadrado.style.margin = "10px";
-  nuevoCuadrado.draggable = 'true';
-  nuevoCuadrado.
+  nuevoCuadrado.draggable = "true";
   nuevoCuadrado.setAttribute(
     "style",
     `${nuevoCuadrado.getAttribute("style")} ; float: left `
@@ -46,6 +43,14 @@ for (let i = 0; i < 25; i++) {
 }
 
 for (let index = 0; index < arrayCuadrados.length; index++) {
+  arrayCuadrados[index].addEventListener("mousemove", function () {
+    this.style.backgroundColor = "black";
+    this.setAttribute('pepe', `${this.style.backgroundColor}`);
+  });
+  arrayCuadrados[index].addEventListener("mouseout", function () {
+    this.style.backgroundColor = "pepe";
+
+  });
   if (index % 2 == 0) {
     arrayCuadrados[index].style.backgroundColor = "red";
     console.log(arrayCuadrados[0]);
