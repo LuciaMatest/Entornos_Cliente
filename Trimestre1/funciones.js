@@ -9,10 +9,9 @@ let arrayP = Array.from(document.getElementsByTagName("P"));
 for (const key in arrayP) {
   let element = arrayP[key];
 
-  element.addEventListener("click", cambiarColor);
+  element.addEventListener("mouseover", cambiarColor);
   console.log(element);
 }
-
 
 // //CUADRADO
 // let arrayCuadrados = [];
