@@ -13,36 +13,41 @@ for (const key in arrayP) {
   console.log(element);
 }
 
-// //CUADRADO
-// let arrayCuadrados = [];
 
-// function crearCuadrado(idCuadrado, lado, fondo) {
-//   let nuevoCuadrado = document.createElement("div");
-//   nuevoCuadrado.setAttribute("id", idCuadrado);
-//   nuevoCuadrado.setAttribute(
-//     "style",
-//     `width: ${lado}px; background-color: ${fondo}`
-//   );
-//   nuevoCuadrado.style.height = `${lado}px`;
-//   nuevoCuadrado.style.margin = "10px";
-//   nuevoCuadrado.setAttribute(
-//     "style",
-//     `${nuevoCuadrado.getAttribute("style")} ; float: left `
-//   );
-//   document.body.appendChild(nuevoCuadrado);
-//   return nuevoCuadrado;
-// }
 
-// //crearCuadrado('cuadrado1', 50, 'blue');
+let arrayCuadrados = [];
 
-// for (let i = 0; i < 25; i++) {
-//   //arrayCuadrados.push(crearCuadrado(`cuadrado${i}`, 50, 'blue'));
-//   arrayCuadrados[i] = crearCuadrado(`cuadrado${i}`, 50, "blue");
-// }
+function crearCuadrado(idCuadrado, lado, fondo) {
+  let nuevoCuadrado = document.createElement("div");
+  // nuevoTexNode=document.createTextNode('Palabras...');
+  // nuevoCuadrado.appendChild(nuevoTexNode);
+  nuevoCuadrado.setAttribute("id", idCuadrado);
+  nuevoCuadrado.setAttribute(
+    "style",
+    `width: ${lado}px; background-color: ${fondo}`
+  );
+  nuevoCuadrado.style.height = `${lado}px`;
+  nuevoCuadrado.style.margin = "10px";
+  nuevoCuadrado.draggable = 'true';
+  nuevoCuadrado.
+  nuevoCuadrado.setAttribute(
+    "style",
+    `${nuevoCuadrado.getAttribute("style")} ; float: left `
+  );
+  document.body.appendChild(nuevoCuadrado);
+  return nuevoCuadrado;
+}
 
-// for (let index = 0; index < arrayCuadrados.length; index++) {
-//   if (index % 2 == 0) {
-//     arrayCuadrados[index].style.backgroundColor = "red";
-//     console.log(arrayCuadrados[0]);
-//   }
-// }
+//crearCuadrado('cuadrado1', 50, 'blue');
+
+for (let i = 0; i < 25; i++) {
+  //arrayCuadrados.push(crearCuadrado(`cuadrado${i}`, 50, 'blue'));
+  arrayCuadrados[i] = crearCuadrado(`cuadrado${i}`, 50, "blue");
+}
+
+for (let index = 0; index < arrayCuadrados.length; index++) {
+  if (index % 2 == 0) {
+    arrayCuadrados[index].style.backgroundColor = "red";
+    console.log(arrayCuadrados[0]);
+  }
+}
