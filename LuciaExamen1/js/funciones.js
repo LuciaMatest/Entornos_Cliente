@@ -7,16 +7,18 @@ let divLista = document.createElement('div');
 divLista.setAttribute("id", divLista);
 divLista.style.display = 'flex';
 divLista.style.justifyContent = 'center';
-document.body.appendChild(divLista);
 
 let primeraLista = document.getElementById('idCiudades');
-primeraLista.style.textAlign = 'left';
 
 let segundaLista = document.getElementById('idHabitantes');
 segundaLista.style.textAlign = 'right';
 
+let footer= document.getElementsByTagName("footer")[0];
+
+document.body.appendChild(divLista);
 divLista.appendChild(primeraLista);
 divLista.appendChild(segundaLista);
+document.body.appendChild(footer);
 
 // PARTE 2
 let listaDesordenada = Array.from(document.getElementsByTagName("OL"));
