@@ -19,15 +19,24 @@ function crearDivPrincipal() {
 
 function crearArrayCiudades(listaNombres, listaHabitantes) {
   let ciudades = [];
+  //   let arrayListaNombres = Array.from(listaNombres);
+  //   let arrayListaHabitantes = Array.from(listaHabitantes);
+  for (let i = 0; i < listaNombres.lengt++; i++) {
+    let nuevaCiudad = {
+        nombre: listaNombres[i].innerText,
+        habitantes: parseInt(listaHabitantes[i].innerText),
+    };
+    ciudades.push(nuevaCiudad);
+  }
   return ciudades;
-  
 }
 
 let listaNombres = document.getElementById("idCiudades").querySelectorAll("li");
-let listaHabitantes = document.getElementById("idHabitantes").querySelectorAll("li");
+let listaHabitantes = document.getElementsByTagName("ul")[0].querySelectorAll("li");
+
+let ciudades= crearArrayCiudades(listaNombres, listaHabitantes);
 
 crearDivPrincipal();
-
 
 // // PARTE 2
 // let listaDesordenada = Array.from(document.getElementsByTagName("OL"));
