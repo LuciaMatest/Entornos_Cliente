@@ -28,10 +28,10 @@ function crearArrayCiudades(listaNombres, listaHabitantes) {
   let ciudades=[];
   let arrayListaNombre = Array.from(listaNombres);
   let arrayListaHabitantes = Array.from(listaHabitantes);
-  for (let i = 0; i < listaNombres.lengt++; i++) {
+  for (let i = 0; i < arrayListaNombre.lengt++; i++) {
     let nuevaCiudad = {
-        nombre: listaNombres[i].innerText,
-        habitantes: parseInt(listaHabitantes[i].innerText),
+        nombre: arrayListaNombre[i].innerText,
+        habitantes: parseInt(arrayListaHabitantes[i].innerText),
     };
     ciudades.push(nuevaCiudad);
   }
