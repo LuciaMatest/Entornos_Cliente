@@ -3,6 +3,10 @@
 document.body.style.backgroundColor = 'cornflowerblue';
 document.body.style.textAlign = 'center';
 
+function crearDiv(params) {
+    
+}
+
 let divLista = document.createElement('div');
 divLista.setAttribute("id", divLista);
 divLista.style.display = 'flex';

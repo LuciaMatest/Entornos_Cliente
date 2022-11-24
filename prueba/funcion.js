@@ -37,3 +37,27 @@ function movimiento(event) {
 }
 
 window.onkeyup = movimiento;
+
+let verde = 'camisa';
+
+if (true) {
+  let azul = 'gorra';
+  var amarilla = 'chaqueta';
+  let verde = 'pantalon';
+}
+
+// console.log(amarilla);
+// console.log(verde);
+// console.log(azul);
+
+// let verde = 'camisa';
+
+// if (verde) {
+//   let azul = 'gorra';
+//   var amarilla = 'chaqueta';
+//   let verde = 'pantalon';
+// }
+
+// console.log(amarilla);
+// console.log(azul);
+// console.log(verde);
