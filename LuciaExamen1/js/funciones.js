@@ -3,26 +3,30 @@
 document.body.style.backgroundColor = 'cornflowerblue';
 document.body.style.textAlign = 'center';
 
-function crearDiv(params) {
+function crearDivPrincipal() {
+    let divLista = document.createElement('div');
+    divLista.setAttribute('style', 'display: flex; justify-content: center');
+
+    let primeraLista = document.getElementById('idCiudades');
+    let segundaLista = document.getElementById('idHabitantes');
+    primeraLista.parentElement.insertBefore(divLista, primeraLista);
+
+    divLista.appendChild(primeraLista);
+    divLista.appendChild(segundaLista);
+    primeraLista.style = 'textAlign: left';
+    segundaLista.style= 'textAlign: right';
+
+    // let footer= document.getElementsByTagName("footer")[0];
     
+    // document.body.appendChild(divLista);
+    // document.body.appendChild(footer);
 }
 
-let divLista = document.createElement('div');
-divLista.setAttribute("id", divLista);
-divLista.style.display = 'flex';
-divLista.style.justifyContent = 'center';
+function crearArrayCiudades(listaNombres, listaHabitantes) {
+    let ciudades = [];
+    return ciudades;
+}
 
-let primeraLista = document.getElementById('idCiudades');
-
-let segundaLista = document.getElementById('idHabitantes');
-segundaLista.style.textAlign = 'right';
-
-let footer= document.getElementsByTagName("footer")[0];
-
-document.body.appendChild(divLista);
-divLista.appendChild(primeraLista);
-divLista.appendChild(segundaLista);
-document.body.appendChild(footer);
 
 // PARTE 2
 let listaDesordenada = Array.from(document.getElementsByTagName("OL"));
