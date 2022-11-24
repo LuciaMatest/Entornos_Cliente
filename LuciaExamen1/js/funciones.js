@@ -25,7 +25,9 @@ function crearDivBotones() {
 }
 
 function crearArrayCiudades(listaNombres, listaHabitantes) {
-  let ciudades = [];
+  let ciudades=[];
+  let arrayListaNombre = Array.from(listaNombres);
+  let arrayListaHabitantes = Array.from(listaHabitantes);
   for (let i = 0; i < listaNombres.lengt++; i++) {
     let nuevaCiudad = {
         nombre: listaNombres[i].innerText,
