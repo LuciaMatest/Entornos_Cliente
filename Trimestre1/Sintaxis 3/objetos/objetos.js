@@ -89,5 +89,7 @@ class Productos {
 let cpo1 = new Productos('Asus', 'Ordenador', 3, 367.8);
 let cpo2 = new Productos('Philips', 'Aspiradora', 5, 69.89);
 let cpo3 = new Productos('Reflex', 'Cámara', 16, 199.99);
-console.log(cpo.getInfo());
+console.log(cpo1.getInfo());
+console.log(cpo2.getInfo());
+console.log(cpo3.getInfo());
 //-----------------------------------------------------------------------------------------------
