@@ -74,7 +74,7 @@ Number.prototype.moneda = function () {
     return this.toLocaleString('de-DE',{style: 'currency',currency: 'EUR'});
 }
 
-class Productos {
+class Producto {
     constructor(nombre, categoria, unidades, precio) {
         this.nombre = nombre;
         this.categoria = categoria;
@@ -86,10 +86,55 @@ class Productos {
     }
 }
 
-let cpo1 = new Productos('Asus', 'Ordenador', 3, 367.8);
-let cpo2 = new Productos('Philips', 'Aspiradora', 5, 69.89);
-let cpo3 = new Productos('Reflex', 'Cámara', 16, 199.99);
-console.log(cpo1.getInfo());
-console.log(cpo2.getInfo());
-console.log(cpo3.getInfo());
+// let pro1 = new Producto('Asus', 'Ordenador', 3, 367.8);
+// let pro2 = new Producto('Philips', 'Aspiradora', 5, 69.89);
+// let pro3 = new Producto('Reflex', 'Cámara', 16, 199.99);
+// let array_productos=[pro1, pro2, pro3];
+// array_productos.forEach(producto => {
+//     console.log(producto.getInfo())
+// });
 //-----------------------------------------------------------------------------------------------
+// class Alumno {
+//     constructor(nombre, apellidos, edad) {
+//         this.nombre = nombre;
+//         this.apellidos = apellidos;
+//         this.edad = edad;
+//     }
+
+//     getInfo() {
+//         let nomAlum=() => `${this.nombre} ${this.apellidos}`;
+//         return `El alumno ${nomAlum()} tiene ${this.edad} años`;
+//     }
+
+//     getInfo() {
+//         function nomAlum(alumno) {
+//             return `${alumno.nombre} ${alumno.apellidos}`;
+//         }
+//         return `El alumno ${nomAlum(this)} tiene ${this.edad} años`;
+//     }
+
+//     getInfo() {
+//         let that=this;
+//         function nomAlum() {
+//             return `${that.nombre} ${that.apellidos}`;
+//         }
+//         return `El alumno ${nomAlum()} tiene ${this.edad} años`;
+//     }
+// }
+
+// let cpo = new Alumno('Carlos','Pérez Ortiz', 19);
+// console.log(cpo.getInfo());
+//-----------------------------------------------------------------------------------------------
+class Televisor extends Producto{
+    constructor(nombre, categoria, unidades, precio, tamaño){
+        super(nombre, categoria, unidades, precio);
+        this.tamaño = tamaño;
+    }
+
+    getInfo2(){
+        return `${this.nombre} de ${this.tamaño} pulgadas`;
+    }
+}
+
+let tv = new Televisor('Samsung', 'TV', 6, 67.5, '46"');
+console.log(tv.getInfo2());
