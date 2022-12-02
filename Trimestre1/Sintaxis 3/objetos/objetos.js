@@ -70,21 +70,21 @@
 // console.log(tvSamsung.importe());
 // console.log(`${tvSamsung.nombre.mayusculas()}`);
 //-----------------------------------------------------------------------------------------------
-Number.prototype.moneda = function () {
-    return this.toLocaleString('de-DE',{style: 'currency',currency: 'EUR'});
-}
+// Number.prototype.moneda = function () {
+//     return this.toLocaleString('de-DE',{style: 'currency',currency: 'EUR'});
+// }
 
-class Producto {
-    constructor(nombre, categoria, unidades, precio) {
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.unidades = unidades;
-        this.precio = precio;
-    }
-    getInfo() {
-        return `${this.nombre} (${this.categoria}): ${this.unidades} uds x ${this.precio.moneda()} = ${(this.unidades*this.precio).moneda()}`;
-    }
-}
+// class Producto {
+//     constructor(nombre, categoria, unidades, precio) {
+//         this.nombre = nombre;
+//         this.categoria = categoria;
+//         this.unidades = unidades;
+//         this.precio = precio;
+//     }
+//     getInfo() {
+//         return `${this.nombre} (${this.categoria}): ${this.unidades} uds x ${this.precio.moneda()} = ${(this.unidades*this.precio).moneda()}`;
+//     }
+// }
 
 // let pro1 = new Producto('Asus', 'Ordenador', 3, 367.8);
 // let pro2 = new Producto('Philips', 'Aspiradora', 5, 69.89);
@@ -125,16 +125,55 @@ class Producto {
 // let cpo = new Alumno('Carlos','Pérez Ortiz', 19);
 // console.log(cpo.getInfo());
 //-----------------------------------------------------------------------------------------------
-class Televisor extends Producto{
-    constructor(nombre, categoria, unidades, precio, tamaño){
-        super(nombre, categoria, unidades, precio);
-        this.tamaño = tamaño;
-    }
+// class Televisor extends Producto{
+//     constructor(nombre, categoria, unidades, precio, tamaño){
+//         super(nombre, categoria, unidades, precio);
+//         this.tamaño = tamaño;
+//     }
 
-    getInfo2(){
-        return `${this.nombre} de ${this.tamaño} pulgadas`;
+//     getInfo(){
+//         return `${this.nombre} de ${this.tamaño} pulgadas`;
+//     }
+// }
+
+// let tv = new Televisor('Samsung', 'TV', 6, 67.5, '46"');
+// console.log(tv.getInfo());
+//-----------------------------------------------------------------------------------------------
+// EJERCICIO: Crea 5 productos y guárdalos en un array. Crea las siguientes funciones (todas reciben ese array como parámetro):
+// prodsWithLowUnits: además del array recibe como segundo parámetro un número, y devuelve un array con todos
+// los productos de los que quedan menos de las unidades indicadas.
+// prodsList: devuelve una cadena que dice ‘Listado de productos:’ y en cada línea un guión y la información de un
+// producto del array.
+
+    
+class Producto {
+    constructor(nombre, categoria, unidades, precio) {
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.unidades = unidades;
+        this.precio = precio;
+    }
+    
+    // toString(){
+    //     return this.nombre
+    // }
+
+    toString(){
+        return this.precio
     }
 }
 
-let tv = new Televisor('Samsung', 'TV', 6, 67.5, '46"');
-console.log(tv.getInfo2());
+let arrayProductos =[];
+arrayProductos[0] = new Producto('Sonic', 'TV', 8, 67.265);
+arrayProductos[1] = new Producto('Asus', 'PC', 45, 454.23);
+arrayProductos[2] = new Producto('Philips', 'Monitor', 16, 200);
+arrayProductos[3] = new Producto('LG', 'Portatil', 7, 792.15);
+arrayProductos[4] = new Producto('Xiaomi', 'Movil', 2, 125.785);
+
+// prodsSortByName: devuelve un array con los productos ordenados alfabéticamente. //
+arrayProductos.sort();
+
+// prodsSortByPrice: devuelve un array con los productos ordenados por precio. //
+arrayProductos.sort((producto1, producto2) => producto1.precio - producto2.precio)
+
+// prodsTotalPrice: devuelve el importe total de los productos del array, con 2 decimales.
