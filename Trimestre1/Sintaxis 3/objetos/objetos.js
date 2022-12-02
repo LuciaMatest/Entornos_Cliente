@@ -4,7 +4,11 @@
 // alumno.edad = 19;
 
 // let alumna = {
+<<<<<<< HEAD
 //     // propiedades
+=======
+//     propiedades
+>>>>>>> e1444e1 (1)
 //     nombre: 'Ana',
 //     apellidos: 'Cifuentes Martin',
 //     edad: 26,
@@ -12,6 +16,7 @@
 //         altura: 1.7,
 //         pie: 32,
 //     },
+<<<<<<< HEAD
 // };
 
 // console.log(alumna.edad + 1);
