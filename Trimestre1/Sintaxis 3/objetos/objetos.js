@@ -12,6 +12,13 @@
 //         altura: 1.7,
 //         pie: 32,
 //     },
+//     getInfo2: () =>{
+//         console.log(this);
+//         return this;
+//     }
+//     getInfo2: function () {
+//         return `${this.nombre} mide ${this.medidas?.altura} cm`;
+//     }
 // };
 
 // console.log(alumna.edad + 1);
@@ -65,14 +72,6 @@ class Productos {
 let cpo = new Productos('Asus', 'Ordenador', 3, 367.8);
 console.log(cpo.getInfo());
 //-----------------------------------------------------------------------------------------------
-//     getInfo2: () =>{
-//         console.log(this);
-//         return this;
-//     }
-//     getInfo2: function () {
-//         return `${this.nombre} mide ${this.medidas?.altura} cm`;
-//     }
-// };
 
 // console.log(alumna.edad + 1);
 // alumna.edad = 40;
