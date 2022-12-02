@@ -51,7 +51,24 @@
 
 // }
 
+// console.log(tvSamsung.importe());//-----------------------------------------------------------------------------------------------
+// String.prototype.mayusculas = function () {
+//     return this.toLocaleUpperCase();
+// }
+
+// let tvSamsung = {
+//     nombre: 'TV Samsung 42"',
+//     categoria: 'televisores',
+//     unidades: 4,
+//     precio: 345.95,
+//     importe: function() {
+//         let total = this.unidades*this.precio;
+//         return `${this.nombre}: ${total.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}`;
+//     }
+// };
+
 // console.log(tvSamsung.importe());
+// console.log(`${tvSamsung.nombre.mayusculas()}`);
 //-----------------------------------------------------------------------------------------------
 Number.prototype.moneda = function () {
     return this.toLocaleString('de-DE',{style: 'currency',currency: 'EUR'});
@@ -69,53 +86,8 @@ class Productos {
     }
 }
 
-let cpo = new Productos('Asus', 'Ordenador', 3, 367.8);
+let cpo1 = new Productos('Asus', 'Ordenador', 3, 367.8);
+let cpo2 = new Productos('Philips', 'Aspiradora', 5, 69.89);
+let cpo3 = new Productos('Reflex', 'Cámara', 16, 199.99);
 console.log(cpo.getInfo());
 //-----------------------------------------------------------------------------------------------
-
-// console.log(alumna.edad + 1);
-// alumna.edad = 40;
-// console.log(alumna.edad);
-// let edad = 'edad';
-// console.log(alumna[edad]);
-
-// console.log(alumna);
-// console.log(alumna.medidas.altura);
-// console.log(alumna.medidas.pie);
-
-// console.log(alumna.notas?.primero);
-
-// for (let propiedades in alumna) {
-//     for (let key in propiedades) {
-//         console.log(`${propiedades}: ${alumna[propiedades]}`);
-//     }
-// }
-
-// alumna.colorGorro = 'verde';
-// console.log(Object.values(alumna));
-
-// metodo
-// alumna.getInfo = function () {
-//     return `${this.nombre} tiene ${this.edad} años`;
-// }
-
-// console.log(alumna.getInfo());
-// console.log(alumna.getInfo2());
-
-String.prototype.mayusculas = function () {
-    return this.toLocaleUpperCase();
-}
-
-let tvSamsung = {
-    nombre: 'TV Samsung 42"',
-    categoria: 'televisores',
-    unidades: 4,
-    precio: 345.95,
-    importe: function() {
-        let total = this.unidades*this.precio;
-        return `${this.nombre}: ${total.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}`;
-    }
-};
-
-console.log(tvSamsung.importe());
-console.log(`${tvSamsung.nombre.mayusculas()}`);
