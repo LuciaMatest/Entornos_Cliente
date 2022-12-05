@@ -140,12 +140,11 @@
 // console.log(tv.getInfo());
 //-----------------------------------------------------------------------------------------------
 // EJERCICIO: Crea 5 productos y guárdalos en un array. Crea las siguientes funciones (todas reciben ese array como parámetro):
-// prodsWithLowUnits: además del array recibe como segundo parámetro un número, y devuelve un array con todos
-// los productos de los que quedan menos de las unidades indicadas.
-// prodsList: devuelve una cadena que dice ‘Listado de productos:’ y en cada línea un guión y la información de un
-// producto del array.
 
-    
+Number.prototype.moneda=function () {
+    return this.toLocaleString('de-DE',{style: 'currency',currency: 'EUR'});
+}
+
 class Producto {
     constructor(nombre, categoria, unidades, precio) {
         this.nombre = nombre;
@@ -153,27 +152,55 @@ class Producto {
         this.unidades = unidades;
         this.precio = precio;
     }
-    
-    // toString(){
-    //     return this.nombre
-    // }
 
-    toString(){
-        return this.precio
+    toString() {
+        return `${this.nombre} (${this.categoria}): ${this.unidades} uds x ${this.precio.moneda()}`;
     }
+    
 }
 
 let arrayProductos =[];
-arrayProductos[0] = new Producto('Sonic', 'TV', 8, 67.265);
+arrayProductos[0] = new Producto('Sonic', 'TV', 8, 67.21);
 arrayProductos[1] = new Producto('Asus', 'PC', 45, 454.23);
-arrayProductos[2] = new Producto('Philips', 'Monitor', 16, 200);
+arrayProductos[2] = new Producto('Philips', 'Monitor', 16, 20.23);
 arrayProductos[3] = new Producto('LG', 'Portatil', 7, 792.15);
-arrayProductos[4] = new Producto('Xiaomi', 'Movil', 2, 125.785);
+arrayProductos[4] = new Producto('Xiaomi', 'Movil', 2, 125.78);
 
-// prodsSortByName: devuelve un array con los productos ordenados alfabéticamente. //
-arrayProductos.sort();
+//Las funciones
+// prodsSortByName: devuelve un array con los productos ordenados alfabéticamente
+function prodsSortByName(array) {
+    let arrayNuevo = Array.from(array);
+    arrayNuevo.sort((producto1,producto2) => producto1.nombre.localeCompare(producto2.nombre));
+    return arrayNuevo;
+}
+let arrayPorNombre = prodsSortByName(arrayProductos);
+console.log(arrayPorNombre);
 
-// prodsSortByPrice: devuelve un array con los productos ordenados por precio. //
-arrayProductos.sort((producto1, producto2) => producto1.precio - producto2.precio)
+// prodsSortByPrice: devuelve un array con los productos ordenados por precio.
+function prodSortByPrice(array) {
+    let arrayNuevo = Array.from(array);
+    arrayNuevo.sort((producto1,producto2)=> producto1.precio-producto2.precio);
+    return arrayNuevo;
+}
+let arrayPorPrecio = prodSortByPrice(arrayProductos);
+console.log(arrayPorPrecio);
 
 // prodsTotalPrice: devuelve el importe total de los productos del array, con 2 decimales.
+function prodsTotalPrice(array) {
+    let importeTotal = array.reduce((total, producto)=> total+=producto.unidades*producto.precio, 0);
+    return importeTotal.toFixed(2);
+}
+console.log(prodsTotalPrice(arrayProductos));
+
+// prodsWithLowUnits: además del array recibe como segundo parámetro un número, y devuelve un array con todos los productos de los que quedan menos de las unidades indicadas.
+
+
+// prodsList: devuelve una cadena que dice ‘Listado de productos:’ y en cada línea un guión y la información de un producto del array.
+function prodList(array) {
+    const listadoProducto = array.reduce(function (valorAnterior, valorActual) {
+        return `${valorAnterior} \n ${valorActual}`;
+    }, 'Listado de productos: ');
+    return listadoProducto;
+}
+
+console.log(prodList(arrayProductos));
