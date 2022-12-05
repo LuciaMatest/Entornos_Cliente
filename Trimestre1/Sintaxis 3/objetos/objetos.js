@@ -193,7 +193,9 @@ function prodsTotalPrice(array) {
 console.log(prodsTotalPrice(arrayProductos));
 
 // prodsWithLowUnits: además del array recibe como segundo parámetro un número, y devuelve un array con todos los productos de los que quedan menos de las unidades indicadas.
+function prodsWithLowUnits(array) {
 
+}
 
 // prodsList: devuelve una cadena que dice ‘Listado de productos:’ y en cada línea un guión y la información de un producto del array.
 function prodList(array) {
