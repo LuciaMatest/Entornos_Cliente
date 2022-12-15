@@ -1,7 +1,3 @@
-Number.prototype.moneda = function () {
-    return this.toLocaleString('de-DE',{style: 'currency',currency: 'EUR'});
-}
-
 class Persona{
     static contadorPersonas = 100;
 
@@ -62,7 +58,7 @@ class Empleado extends Persona{
     }
 
     get sueldo(){
-        return this.sueldo;
+        return this._sueldo.toLocaleString('de-DE',{style: 'currency',currency: 'EUR'});
     }
 
     set sueldo(sueldo){
@@ -70,7 +66,7 @@ class Empleado extends Persona{
     }
 
     toString() {
-        return `Empleado ${super.toString()} \n\t Sueldo: ${this._sueldo.moneda()}`;
+        return `Empleado ${super.toString()} \n\t Sueldo: ${this.sueldo}`;
     }
 }
 
@@ -80,16 +76,19 @@ class Cliente extends Persona{
     constructor(nombre, apellido, edad){
         super(nombre, apellido, edad);
         super._id = ++Cliente.contadorClientes;
-        this._fecha = this.fechaActual();
+        this._fecha = fecha;
     }
 
-    fechaActual(){
-        let dateActual = new Date();
-        return dateActual.toLocaleDateString('es-ES');
+    get fecha(){
+        return this._fecha.toLocaleDateString();
+    }
+
+    set fecha(fecha){
+        this._fecha=fecha;
     }
 
     toString() {
-        return `Cliente ${super.toString()} \n\t Registro: ${this.fechaActual()}`;
+        return `Cliente ${super.toString()} \n\t Registro: ${this.fecha}`;
     }
 }
 
@@ -99,7 +98,7 @@ let persona2 = new Persona("Javier", "Copello", 32);
 let empleado1 = new Empleado("Maria", "Perez", 33, 56.62);
 let empleado2 = new Empleado("Pablo", "Lopez", 85, 26.12);
 
-let cliente1 = new Cliente("Lorena", "Muñoz", 65);
+let cliente1 = new Cliente("Lorena", "Muñoz", 65, fecha = new Date());
 
 console.log(persona1.toString());
 console.log(empleado1.toString());
