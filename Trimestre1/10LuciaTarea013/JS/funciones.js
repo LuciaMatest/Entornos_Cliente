@@ -12,12 +12,15 @@ class Persona{
 
     //Constructor
     constructor(nombre, apellido, edad){
-        this.id = ++Persona.contadorPersonas;
+        this._id = ++Persona.contadorPersonas;
         this._nombre = nombre;
         this._apellido = apellido;
         this._edad = edad;
     }
 
+    get id(){
+        return this._id;
+    }
 
     get nombre(){
         //Para que aparezca siempre la primera en mayuscula y el resto en minusculas
@@ -50,11 +53,11 @@ class Persona{
 }
 
 class Empleado extends Persona{
-    static contadorPersonas = 200;
+    static contadorEmpleados = 200;
 
     constructor(nombre, apellido, edad, sueldo){
         super(nombre, apellido, edad);
-        super.id = ++Empleado.contadorPersonas;
+        super._id = ++Empleado.contadorEmpleados;
         this._sueldo = sueldo;
     }
 
@@ -96,11 +99,11 @@ class Empleado extends Persona{
 }
 
 class Cliente extends Persona{
-    static contadorPersonas = 300;
+    static contadorClientes = 300;
 
     constructor(nombre, apellido, edad){
         super(nombre, apellido, edad);
-        super.id = ++Empleado.contadorPersonas;
+        super._id = ++Cliente.contadorClientes;
         this._fecha = this.fechaActual();
     }
 
