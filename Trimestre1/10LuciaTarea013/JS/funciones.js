@@ -18,30 +18,22 @@ class Persona{
         this._edad = edad;
     }
 
+
     get nombre(){
-        return this._nombre[0].toUpperCase() + this._nombre.slice(1);
+        //Para que aparezca siempre la primera en mayuscula y el resto en minusculas
+        return `${this._nombre[0].toUpperCase()}${this._nombre.toLowerCase().slice(1)}`;
     }
 
     set nombre(nombre){
-        this._nombre=nombre[0].toUpperCase() + (this._nombre.slice(1)).toLowerCase();
+        this._nombre=nombre;
     }
 
     get apellido(){
-        let arrayApellido= Array.from(this._apellido.split(' '));
-        this._apellido = '';
-        arrayApellido.forEach(apellido =>{
-            this._apellido+=(apellido[0]).toUpperCase() + apellido.slice(1).toLowerCase() + ' ';
-        });
-        return this._apellido;
+        return `${this._apellido[0].toUpperCase()}${this._apellido.toLowerCase().slice(1)}`;
     }
 
     set apellido(apellido){
         this._apellido=apellido;
-        let arrayApellido= Array.from(this._apellido.split(' '));
-        this._apellido = '';
-        arrayApellido.forEach(palabra =>{
-            this._apellido+=(palabra[0]).toUpperCase() + palabra.slice(1).toLowerCase() + ' ';
-        });
     }
 
     get edad(){
@@ -53,7 +45,7 @@ class Persona{
     }
 
     toString() {
-        return `${this.id}: \n ${this.nombre} ${this.apellido} \n Edad: ${this.edad}`;
+        return `${this.id}: \n\t ${this.nombre} ${this.apellido} \n\t Edad: ${this.edad}`;
     }
 }
 
@@ -75,21 +67,11 @@ class Empleado extends Persona{
     }
 
     get apellido(){
-        let arrayApellido= Array.from(this._apellido.split(' '));
-        this._apellido = '';
-        arrayApellido.forEach(apellido =>{
-            this._apellido+=(apellido[0]).toUpperCase() + apellido.slice(1).toLowerCase() + ' ';
-        });
-        return this._apellido;
+        return `${this._apellido[0].toUpperCase()}${this._apellido.toLowerCase().slice(1)}`;
     }
 
     set apellido(apellido){
         this._apellido=apellido;
-        let arrayApellido= Array.from(this._apellido.split(' '));
-        this._apellido = '';
-        arrayApellido.forEach(apellido =>{
-            this._apellido+=(apellido[0]).toUpperCase() + apellido.slice(1).toLowerCase() + ' ';
-        });
     }
 
     get edad(){
@@ -109,7 +91,7 @@ class Empleado extends Persona{
     }
 
     toString() {
-        return `Empleado ${super.toString()} \n Sueldo: ${this._sueldo.moneda()}`;
+        return `Empleado ${super.toString()} \n\t Sueldo: ${this._sueldo.moneda()}`;
     }
 }
 
@@ -128,11 +110,11 @@ class Cliente extends Persona{
     }
 
     toString() {
-        return `Cliente ${super.toString()} \n Registro: ${this._fecha}`;
+        return `Cliente ${super.toString()} \n\t Registro: ${this._fecha}`;
     }
 }
 
-let persona1 = new Persona("Lucia", "Mateos", 28);
+let persona1 = new Persona("LUCIA", "Mateos", 28);
 let persona2 = new Persona("Javier", "Copello", 32);
 
 let empleado1 = new Empleado("Maria", "Perez", 33, 56.62);
