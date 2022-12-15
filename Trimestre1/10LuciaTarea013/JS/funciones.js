@@ -8,6 +8,9 @@ class Persona{
 
     //Constructor
     constructor(nombre, apellido, edad){
+        if (Persona.contadorPersonas >= Persona.MAX_AFORO) {
+            console.log('AVISO: Hay más de ' + (Persona.MAX_AFORO - 100) + ' objetos creados');
+        }
         this._id = ++Persona.contadorPersonas;
         this._nombre = nombre;
         this._apellido = apellido;
@@ -117,3 +120,5 @@ console.log("Contador de personas: " + Persona.contadorPersonas);
 let p25 = new Persona();
 console.log("Contador de personas: " + Persona.contadorPersonas);
 let p26 = new Persona();
+console.log("Contador de personas: " + Persona.contadorPersonas);
+let p27 = new Persona();
