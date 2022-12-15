@@ -93,7 +93,7 @@ class Cliente extends Persona{
 }
 
 let persona1 = new Persona("LUCIA", "Mateos", 28);
-let persona2 = new Persona("Javier", "Copello", 32);
+let persona2 = new Persona("Javier", "CoPELlo", 32);
 
 let empleado1 = new Empleado("Maria", "Perez", 33, 56.62);
 let empleado2 = new Empleado("Pablo", "Lopez", 85, 26.12);
