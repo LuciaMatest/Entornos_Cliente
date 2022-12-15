@@ -5,14 +5,16 @@ Number.prototype.moneda = function () {
 class Persona{
     static contadorPersonas = 100;
 
+    //Metodo estatico para que devuelva una constante
     static get MAX_AFORO(){
         return 106;
     }
 
-    constructor(nombre, apellidos, edad){
+    //Constructor
+    constructor(nombre, apellido, edad){
         this.id = ++Persona.contadorPersonas;
         this._nombre = nombre;
-        this._apellidos = apellidos;
+        this._apellido = apellido;
         this._edad = edad;
     }
 
@@ -24,21 +26,21 @@ class Persona{
         this._nombre=nombre[0].toUpperCase() + (this._nombre.slice(1)).toLowerCase();
     }
 
-    get apellidos(){
-        let arrayApellidos= Array.from(this._apellidos.split(' '));
-        this._apellidos = '';
-        arrayApellidos.forEach(apellido =>{
-            this._apellidos+=(apellido[0]).toUpperCase() + apellido.slice(1).toLowerCase() + ' ';
+    get apellido(){
+        let arrayApellido= Array.from(this._apellido.split(' '));
+        this._apellido = '';
+        arrayApellido.forEach(apellido =>{
+            this._apellido+=(apellido[0]).toUpperCase() + apellido.slice(1).toLowerCase() + ' ';
         });
-        return this._apellidos;
+        return this._apellido;
     }
 
-    set apellidos(apellidos){
-        this._apellidos=apellidos;
-        let arrayApellidos= Array.from(this._apellidos.split(' '));
-        this._apellidos = '';
-        arrayApellidos.forEach(apellido =>{
-            this._apellidos+=(apellido[0]).toUpperCase() + apellido.slice(1).toLowerCase() + ' ';
+    set apellido(apellido){
+        this._apellido=apellido;
+        let arrayApellido= Array.from(this._apellido.split(' '));
+        this._apellido = '';
+        arrayApellido.forEach(palabra =>{
+            this._apellido+=(palabra[0]).toUpperCase() + palabra.slice(1).toLowerCase() + ' ';
         });
     }
 
@@ -58,8 +60,8 @@ class Persona{
 class Empleado extends Persona{
     static contadorPersonas = 200;
 
-    constructor(nombre, apellidos, edad, sueldo){
-        super(nombre, apellidos, edad);
+    constructor(nombre, apellido, edad, sueldo){
+        super(nombre, apellido, edad);
         super.id = ++Empleado.contadorPersonas;
         this._sueldo = sueldo;
     }
@@ -72,21 +74,21 @@ class Empleado extends Persona{
         this._nombre=nombre[0].toUpperCase() + (this._nombre.slice(1)).toLowerCase();
     }
 
-    get apellidos(){
-        let arrayApellidos= Array.from(this._apellidos.split(' '));
-        this._apellidos = '';
-        arrayApellidos.forEach(apellido =>{
-            this._apellidos+=(apellido[0]).toUpperCase() + apellido.slice(1).toLowerCase() + ' ';
+    get apellido(){
+        let arrayApellido= Array.from(this._apellido.split(' '));
+        this._apellido = '';
+        arrayApellido.forEach(apellido =>{
+            this._apellido+=(apellido[0]).toUpperCase() + apellido.slice(1).toLowerCase() + ' ';
         });
-        return this._apellidos;
+        return this._apellido;
     }
 
-    set apellidos(apellidos){
-        this._apellidos=apellidos;
-        let arrayApellidos= Array.from(this._apellidos.split(' '));
-        this._apellidos = '';
-        arrayApellidos.forEach(apellido =>{
-            this._apellidos+=(apellido[0]).toUpperCase() + apellido.slice(1).toLowerCase() + ' ';
+    set apellido(apellido){
+        this._apellido=apellido;
+        let arrayApellido= Array.from(this._apellido.split(' '));
+        this._apellido = '';
+        arrayApellido.forEach(apellido =>{
+            this._apellido+=(apellido[0]).toUpperCase() + apellido.slice(1).toLowerCase() + ' ';
         });
     }
 
@@ -114,8 +116,8 @@ class Empleado extends Persona{
 class Cliente extends Persona{
     static contadorPersonas = 300;
 
-    constructor(nombre, apellidos, edad){
-        super(nombre, apellidos, edad);
+    constructor(nombre, apellido, edad){
+        super(nombre, apellido, edad);
         super.id = ++Empleado.contadorPersonas;
         this._fecha = this.fechaActual();
     }
@@ -129,6 +131,7 @@ class Cliente extends Persona{
         return `Cliente ${super.toString()} \n Registro: ${this._fecha}`;
     }
 }
+
 let persona1 = new Persona("Lucia", "Mateos", 28);
 let persona2 = new Persona("Javier", "Copello", 32);
 
@@ -142,3 +145,15 @@ console.log(empleado1.toString());
 console.log(cliente1.toString());
 console.log(empleado2.toString());
 console.log(persona2.toString());
+
+console.log("Id del empleado2: " + empleado2.id);
+console.log("Id del cliente1: " + cliente1.id);
+
+console.log("Contador de personas: " + Persona.contadorPersonas);
+let p23 = new Persona();
+console.log("Contador de personas: " + Persona.contadorPersonas);
+let p24 = new Persona();
+console.log("Contador de personas: " + Persona.contadorPersonas);
+let p25 = new Persona();
+console.log("Contador de personas: " + Persona.contadorPersonas);
+let p26 = new Persona();
