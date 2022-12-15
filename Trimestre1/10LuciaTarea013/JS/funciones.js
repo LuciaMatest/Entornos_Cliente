@@ -61,30 +61,6 @@ class Empleado extends Persona{
         this._sueldo = sueldo;
     }
 
-    get nombre(){
-        return this._nombre[0].toUpperCase() + this._nombre.slice(1);
-    }
-
-    set nombre(nombre){
-        this._nombre=nombre[0].toUpperCase() + (this._nombre.slice(1)).toLowerCase();
-    }
-
-    get apellido(){
-        return `${this._apellido[0].toUpperCase()}${this._apellido.toLowerCase().slice(1)}`;
-    }
-
-    set apellido(apellido){
-        this._apellido=apellido;
-    }
-
-    get edad(){
-        return this._edad;
-    }
-
-    set edad(edad){
-        this._edad = edad;
-    }
-
     get sueldo(){
         return this.sueldo;
     }
@@ -113,7 +89,7 @@ class Cliente extends Persona{
     }
 
     toString() {
-        return `Cliente ${super.toString()} \n\t Registro: ${this._fecha}`;
+        return `Cliente ${super.toString()} \n\t Registro: ${this.fechaActual()}`;
     }
 }
 
