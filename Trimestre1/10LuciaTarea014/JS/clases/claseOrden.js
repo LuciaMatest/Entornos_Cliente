@@ -20,19 +20,21 @@ export class Orden {
         }
     }
 
-    precioTotal() {
+    //no se porque no me pone el total...
+    calcularTotal() {
         let precioTotal;
         precioTotal = this.productos.reduce((total, producto) =>
             total += producto.precio, 0);
         return precioTotal.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
     }
 
-    toString() {
+    mostrarOrden() {
         return `
 ______________________________
 Orden : ${this.idOrden.toString().padStart(3, "0")}
-        ${this.productos.reduce((nombre, producto) => nombre += `\n\t${producto.toString()}`)}
+        ${this.productos.reduce((nombre, producto) => nombre += `
+        ${producto.toString()}`)}
 ------------------------------
-Total: ${this.precioTotal()}`;
+Total: ${this.calcularTotal()}`;
     }
 }
