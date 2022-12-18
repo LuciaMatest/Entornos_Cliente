@@ -1,31 +1,27 @@
-import {Persona} from "./clases/clasePersona.js";
-import {Empleado} from "./clases/claseEmpleado.js";
-import {Cliente} from "./clases/claseCliente.js";
+import {Orden} from "./clases/claseOrden.js";
+import {Producto} from "./clases/claseProducto.js";
 
-let persona1 = new Persona("LUCIA", "Mateos", 28);
-let persona2 = new Persona("Javier", "CoPELlo", 32);
+let p1=new Producto('Camisa',36.5);
+let p2=new Producto('Chaqueta',214,99);
+let p3=new Producto('Pantalón',67);
 
-let empleado1 = new Empleado("Maria", "Perez", 33, 56.62);
-let empleado2 = new Empleado("Pablo", "Lopez", 85, 26.12);
+let o1=new Orden();
 
-let cliente1 = new Cliente("Lorena", "Muñoz", 65);
+o1.agregarProducto(p1);
+o1.agregarProducto(p2);
+o1.agregarProducto(p3);
 
-console.log(persona1.toString());
-console.log(empleado1.toString());
-console.log(cliente1.toString());
-console.log(empleado2.toString());
-console.log(persona2.toString());
+// let o2= new Orden();
 
-console.log("Id del empleado2: " + empleado2.id);
-console.log("Id del cliente1: " + cliente1.id);
+// p2.precio=160;
 
-console.log("Contador de personas: " + Persona.contadorPersonas);
-let p23 = new Persona();
-console.log("Contador de personas: " + Persona.contadorPersonas);
-let p24 = new Persona();
-console.log("Contador de personas: " + Persona.contadorPersonas);
-let p25 = new Persona();
-console.log("Contador de personas: " + Persona.contadorPersonas);
-let p26 = new Persona();
-console.log("Contador de personas: " + Persona.contadorPersonas);
-let p27 = new Persona();
+// o2.agregarProducto(p3);
+// p2.nombre='Americana';
+// o2.agregarProducto(p2);
+// o2.agregarProducto(p2);
+// o2.agregarProducto(p2);
+// o2.agregarProducto(p2);
+// o2.agregarProducto(p2);
+// o2.agregarProducto(p2);
+console.log(o1.toString());
+// console.log(o2.toString());
