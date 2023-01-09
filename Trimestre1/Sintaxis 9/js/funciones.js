@@ -1,10 +1,5 @@
 function obtenerValor(nombreCookie) {
-    let nombreCookie = obtenerCookie(nombreCookie); 
-    if (nombreCookie!=""){
-
-
-    }
+    document.cookie = 'nombre=' + encodeURIComponent(nombreCookie);
 }
 
-document.cookie = 'nombre=' + obtenerValor(prueba);
-
+console.log(obtenerValor('Paco'));
