@@ -1,5 +1,4 @@
+document.cookie = "nombre=Paco";
 function obtenerValor(nombreCookie) {
-    document.cookie = 'nombre=' + encodeURIComponent(nombreCookie);
+  alert(document.cookie);
 }
-
-console.log(obtenerValor('Paco'));
