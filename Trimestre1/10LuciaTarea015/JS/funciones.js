@@ -31,15 +31,15 @@ class Producto {
 let arrayProductos = [];
 
 //Input
-let listado = document.getElementById('listado');
-let nombre = document.getElementById('idNombre');
-let precio = document.getElementById('idPrecio');
+let nombre = document.getElementById("idNombre");
+let precio = document.getElementById("idPrecio");
+let listado = document.getElementById("listado");
 
 //Botones
-document.getElementById('btn_restablecer').addEventListener(click, restablecer);
-document.getElementById('btn_guardar').addEventListener(click, guardar);
-document.getElementById('btn_limpiar_vista').addEventListener(click, limpiar);
-document.getElementById('btn_eliminar_todo').addEventListener(click, eliminar);
+document.getElementById("btn_restablecer").addEventListener(click, restablecer);
+document.getElementById("btn_guardar").addEventListener(click, guardar);
+document.getElementById("btn_limpiar_vista").addEventListener(click, limpiar);
+document.getElementById("btn_eliminar_todo").addEventListener(click, eliminar);
 
 //Funciones
 function restablecer() {
