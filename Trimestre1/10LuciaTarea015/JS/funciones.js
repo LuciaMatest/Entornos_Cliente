@@ -24,7 +24,7 @@ class Producto {
     }
 
     toString() {
-        return `${this._idProducto} - ${this.nombre} ${this.precio}`;
+        return `${this._idProducto} - ${this.nombre} ${this.precio}€`;
     }
 }
 
@@ -36,10 +36,10 @@ let precio = document.getElementById("idPrecio");
 let listado = document.getElementById("listado");
 
 //Botones
-document.getElementById("btn_restablecer").addEventListener(click, restablecer);
-document.getElementById("btn_guardar").addEventListener(click, guardar);
-document.getElementById("btn_limpiar_vista").addEventListener(click, limpiar);
-document.getElementById("btn_eliminar_todo").addEventListener(click, eliminar);
+document.getElementById("btn_restablecer").addEventListener('click', restablecer);
+document.getElementById("btn_guardar").addEventListener('click', guardar);
+document.getElementById("btn_limpiar_vista").addEventListener('click', limpiar);
+document.getElementById("btn_eliminar_todo").addEventListener('click', eliminar);
 
 //Funciones
 function restablecer() {
