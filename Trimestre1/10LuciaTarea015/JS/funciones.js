@@ -50,8 +50,7 @@ function restablecer() {
 function guardar() {
     arrayProductos.push(new Producto(nombre.value,precio.value));
     listado.innerHTML="";
-    localStorage.setItem("almacenamiento", JSON.stringify(arrayProductos));
-    // localStorage.almacenamiento = JSON.stringify(arrayProductos);
+    localStorage.almacenamiento = JSON.stringify(arrayProductos);
     //Creamos el listado
     arrayProductos.forEach(producto => {
         let lista=document.createElement('p');
