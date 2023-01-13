@@ -7,8 +7,8 @@ class Producto {
         this._precio = precio;
     }
 
-    get nombre() {
-        return this._nombre.toUpperCase();
+    get nombre(){
+        return this._nombre[0].toUpperCase() + this._nombre.toLowerCase().slice(1);
     }
 
     set nombre(nombre) {
@@ -16,15 +16,15 @@ class Producto {
     }
 
     get precio() {
-        return this._precio.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+        return `${this._precio.toLocaleString('de-DE',{style: 'currency',currency: 'EUR'})}`;
     }
 
     set precio(precio) {
-        this._precio = precio.toFixed(2);
+        this._precio = precio;
     }
 
     toString() {
-        return `${this._idProducto} - ${this.nombre} ${this.precio}€`;
+        return `${this._idProducto} - ${this.nombre} ${this.precio}`;
     }
 }
 
