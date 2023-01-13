@@ -34,22 +34,42 @@ let arrayProductos = [];
 let nombre = document.getElementById("idNombre");
 let precio = document.getElementById("idPrecio");
 let listado = document.getElementById("listado");
+let formulario=document.getElementById('form');
 
 //Botones
-document.getElementById("btn_restablecer").addEventListener('click', restablecer);
-document.getElementById("btn_guardar").addEventListener('click', guardar);
 document.getElementById("btn_limpiar_vista").addEventListener('click', limpiar);
 document.getElementById("btn_eliminar_todo").addEventListener('click', eliminar);
+formulario.addEventListener('submit', function(evento) {
+    evento.preventDefault();
+    let valido=true;
+    const inputs= formulario.querySelectorAll("input[required]");
+    inputs.forEach(campo => {
+        if (!campo.value) {
+            valido=false;
+        }
+    });
+    if(!valido){
+        alert("Rellena todos los campos");
+    }else{
+        guardar();
+    }
+})
 
 //Funciones
-function restablecer() {
-    nombre.value="";
-    precio.value="";
-}
-
 function guardar() {
-    arrayProductos.push(new Producto(nombre.value,precio.value));
     listado.innerHTML="";
+    if (arrayProductos.length==0 && localStorage.almacenamiento){
+        let productosAlmacenados= localStorage.almacenamiento;
+        let productosParseados= JSON.parse(productosAlmacenados);
+        productosParseados.forEach(element => {
+            let nuevoProducto= new Producto();
+            nuevoProducto._idProducto=element._idProducto;
+            nuevoProducto._nombre=element._nombre;
+            nuevoProducto._precio=element._precio;
+            arrayProductos.push(nuevoProducto);
+        });
+    }
+    arrayProductos.push(new Producto(nombre.value,precio.value));
     localStorage.almacenamiento = JSON.stringify(arrayProductos);
     //Creamos el listado
     arrayProductos.forEach(producto => {
@@ -67,6 +87,7 @@ function eliminar() {
     if (confirm('Borrar todos los datos')) {
         localStorage.removeItem('almacenamiento');
         listado.innerHTML="Datos eliminados";
+        arrayProductos = []
         Producto.contadorProductos=0;
     } 
 }

@@ -20,17 +20,17 @@
 </head>
 
 <body>
-    <h1>Ejercicio deAlmacenamiento</h1>
+    <h1>Ejercicio de almacenamiento</h1>
     <div class="form">
-        <form>
+        <form name="formulario" method="get" id="form">
             <fieldset>
                 <legend>Nuevo producto</legend>
                 <label for="Nombre">Nombre </label>
-                <input type="text" name="nombre" id="idNombre"><br><br>
+                <input type="text" name="nombre" id="idNombre" required><br><br>
                 <label for="Precio">Precio </label>
-                <input type="number" name="precio" id="idPrecio"><br><br>
-                <input type="button" value="Restablecer" id="btn_restablecer">
-                <input type="button" value="Guardar" id="btn_guardar">
+                <input type="number" name="precio" id="idPrecio" required><br><br>
+                <input type="reset" value="Restablecer" id="btn_restablecer">
+                <input type="submit" value="Guardar" id="btn_guardar">
             </fieldset>
         </form>
     
