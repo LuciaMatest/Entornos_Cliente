@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Tarea015</title>
+    <style>
+        body{
+            justify-content: center;
+            text-align: center;
+        }
+        .form{
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ejercicio deAlmacenamiento</h1>
+    <div class="form">
+        <form>
+            <fieldset>
+                <legend>Nuevo producto</legend>
+                <label for="Nombre">Nombre </label>
+                <input type="text" name="nombre" id="idNombre"><br><br>
+                <label for="Precio">Precio </label>
+                <input type="number" name="precio" id="idPrecio"><br><br>
+                <input type="button" value="Restablecer" id="btn_restablecer">
+                <input type="button" value="Guardar" id="btn_guardar">
+            </fieldset>
+        </form>
+    
+        <form>
+            <fieldset>
+                <legend>Lista de productos</legend>
+                <div id="listado">
+    
+                </div><br><br>
+                <input type="button" value="Limpiar vista" id="btn_limpiar_vista">
+                <input type="button" value="Eliminar todo" id="btn_eliminar_todo">
+            </fieldset>
+        </form>
+    </div>
+
+    <script src="JS/funciones.js"></script>
+</body>
+
+</html>
