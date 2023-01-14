@@ -6,28 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="JS/style.css">
     <title>Tarea016</title>
+    <style>
+        body{
+            justify-content: center;
+            text-align: center;
+        }
+        .form{
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <h1>Administración de productos</h1>
-    </header>
-    <div id="crear">
+    <h1>Ejercicio de almacenamiento</h1>
+    <div class="form">
+        <form name="formulario" method="get" id="form">
+            <fieldset>
+                <legend>Nuevo producto</legend>
+                <label for="Nombre">Nombre </label>
+                <input type="text" name="nombre" id="idNombre" required><br><br>
+                <label for="Precio">Precio </label>
+                <input type="number" name="precio" id="idPrecio" required><br><br>
+                <input type="reset" value="Restablecer" id="btn_restablecer">
+                <input type="submit" value="Guardar" id="btn_guardar">
+            </fieldset>
+        </form>
+    
         <form>
-            <label for="nombre">Nombre </label>
-            <input type="text" name="nombre" id="idNombre" required>
-            
-            <label for="precio">Precio </label>
-            <input type="number" name="precio" id="idPrecio" required>
-        
-            <input type="submit" value="Crear" id="btn_crear">
+            <fieldset>
+                <legend>Lista de productos</legend>
+                <div id="listado">
+    
+                </div>
+                <input type="button" value="Limpiar vista" id="btn_limpiar_vista">
+                <input type="button" value="Eliminar todo" id="btn_eliminar_todo">
+            </fieldset>
         </form>
     </div>
-    
 
-    <!-- <script src="JS/funciones.js"></script> -->
+    <script src="JS/funciones.js"></script>
 </body>
 
 </html>
