@@ -30,15 +30,11 @@ class Producto {
 
 let arrayProductos = [];
 
-//Input
 let nombre = document.getElementById("idNombre");
 let precio = document.getElementById("idPrecio");
 let listado = document.getElementById("listado");
-let formulario=document.getElementById('form');
+let formulario=document.getElementById('idFormulario');
 
-//Botones
-document.getElementById("btn_limpiar_vista").addEventListener('click', limpiar);
-document.getElementById("btn_eliminar_todo").addEventListener('click', eliminar);
 formulario.addEventListener('submit', function(evento) {
     evento.preventDefault();
     let valido=true;
@@ -77,17 +73,4 @@ function guardar() {
         lista.appendChild(document.createTextNode(producto.toString()));
         listado.appendChild(lista);
     });
-}
-
-function limpiar() {
-    listado.innerHTML="Vista limpia. Los datos permanecen.";
-}
-
-function eliminar() {
-    if (confirm('Borrar todos los datos')) {
-        localStorage.removeItem('almacenamiento');
-        listado.innerHTML="Datos eliminados";
-        arrayProductos = []
-        Producto.contadorProductos=0;
-    } 
 }
