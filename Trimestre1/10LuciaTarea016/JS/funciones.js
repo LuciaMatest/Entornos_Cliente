@@ -69,8 +69,43 @@ function guardar() {
     localStorage.almacenamiento = JSON.stringify(arrayProductos);
     //Creamos el listado
     arrayProductos.forEach(producto => {
-        let lista=document.createElement('p');
-        lista.appendChild(document.createTextNode(producto.toString()));
-        listado.appendChild(lista);
+        let tr=document.createElement('tr');
+        let td_id=document.createElement('td');
+        let td_nombre=document.createElement('td');
+        let td_precio=document.createElement('td');
+
+        let td_modificar=document.createElement('td');
+        let btn_modificar=document.createElement('button');
+        btn_modificar.innerHTML='Modificar';
+        btn_modificar.setAttribute('class','btn btn-primary');
+        td_modificar.appendChild(btn_modificar);
+
+        let td_eliminar=document.createElement('td');
+        let btn_eliminar=document.createElement('button');
+        btn_eliminar.innerHTML='Eliminar';
+        btn_eliminar.setAttribute('class','btn btn-primary');
+        td_eliminar.appendChild(btn_eliminar);
+
+        td_id.appendChild(document.createTextNode(producto._idProducto));
+        td_nombre.appendChild(document.createTextNode(producto.nombre));
+        td_precio.appendChild(document.createTextNode(producto.precio));
+
+        tr.appendChild(td_id);
+        tr.appendChild(td_nombre);
+        tr.appendChild(td_precio);
+        tr.appendChild(td_modificar);
+        tr.appendChild(td_eliminar);
+        listado.appendChild(tr);
+        
+        btn_eliminar.addEventListener('click',(evento) => {
+            evento.target.parentNode.parentNode.remove();
+        });
+
+        
+        btn_modificar.addEventListener('click',function() {
+            
+        });
+
+        
     });
 }
