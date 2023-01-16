@@ -30,7 +30,10 @@ function listaAnimales(arrayAnimales) {
 // d) Visualizar la lista de animales en el apartado correspondiente.
 let ul = document.createElement('ul');
 let li = document.createElement('li');
-
+for (let index = 0; index < arrayAnimales.length; index++) {
+    const element = arrayAnimales[index];
+    
+}
 ul.appendChild(li);
 div02.appendChild(ul);
 // div02.appendChild(listadoAnimales);
