@@ -13,7 +13,7 @@ let animales = ['León','Cocodrilo','Caballo','Camaleón','Iguana','Ratón'];
 let especies = ['Mamíferos','Reptiles'];
 let años = [14,50,30,8,20,2];
 
-let arrayAnimales = [
+const arrayAnimales = [
     {especie: animales[0] , grupo: especies[0], años: años[0]},
     {especie: animales[1] , grupo: especies[1], años: años[1]},
     {especie: animales[2] , grupo: especies[0], años: años[2]},
@@ -24,8 +24,13 @@ let arrayAnimales = [
 
 // c) Escribir una función que reciba un array de animales (el creado en el apartado anterior) y devuelva un nodo lista desordenada (elemento UL) con la lista de los animales tal como se ve en la imagen.
 function listaAnimales() {
+    const listado = arrayAnimales.forEach((especie, grupo, años) =>{
+        console.log(`${especie}(${grupo}) vive unos ${años} años`);
+    })
     let ul = document.createElement('ul');
     let li = document.createElement('li');
+    ul.appendChild(li);
+    div02.appendChild(ul);
 }
 
 // d) Visualizar la lista de animales en el apartado correspondiente.
