@@ -1,4 +1,3 @@
-
 // a) Poner colores de fondo distintos para cada apartado. Poner Font-family : “arial” para los 4 apartados.
 let div01 = document.getElementById('div01');
 div01.setAttribute('style', 'background-color: cadetblue; font-family: Arial, Helvetica, sans-serif;');
@@ -24,10 +23,10 @@ let arrayAnimales = [
 ]
 
 // c) Escribir una función que reciba un array de animales (el creado en el apartado anterior) y devuelva un nodo lista desordenada (elemento UL) con la lista de los animales tal como se ve en la imagen.
-// function listaAnimales(arrayAnimales) {
-//     let lista = 
-//     let ul = document.createElement('ul');
-// }
+function listaAnimales() {
+    
+}
+
 // d) Visualizar la lista de animales en el apartado correspondiente.
 
 // e) Poner en el apartado ORDENAR un botón para cambiar la visualización de forma que cambie el listado (y su visualización) para que esté ordenado por nombre de especie.
@@ -46,5 +45,9 @@ div03.appendChild(btn_porAños);
 
 
 // g) Escribir una función llamada extraerGrupos() que reciba un array de animales y devuelva un array (sin repeticiones) con los nombres de los grupos que haya en el array de animales.
+
+function extraerGrupos() {
+    
+}
 
 // h) Utilizando la función del apartado anterior, mostrar en el apartado GRUPOS DE ANIMALES los nombres de los grupos que hay actualmente en la tabla de animales. Se recomienda hacerlo de la forma más sencilla, que será añadir al contenido del elemento DIV correspondiente el resultado del método toString() que tiene todo array
