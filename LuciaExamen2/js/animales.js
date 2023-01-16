@@ -24,14 +24,15 @@ let arrayAnimales = [
 
 // c) Escribir una función que reciba un array de animales (el creado en el apartado anterior) y devuelva un nodo lista desordenada (elemento UL) con la lista de los animales tal como se ve en la imagen.
 function listaAnimales() {
-    
+    let ul = document.createElement('ul');
+    let li = document.createElement('li');
 }
 
 // d) Visualizar la lista de animales en el apartado correspondiente.
 
+// div02.appendChild(listadoAnimales);
 // e) Poner en el apartado ORDENAR un botón para cambiar la visualización de forma que cambie el listado (y su visualización) para que esté ordenado por nombre de especie.
 // f) Poner en el apartado ORDENAR un botón para cambiar la visualización de forma que cambie el listado para que esté ordenado por longevidad.
-
 let btn_porEspecie = document.createElement('button');
 btn_porEspecie.innerHTML = 'Ordenar Alfabético Especie';
 btn_porEspecie.type = 'submit';
