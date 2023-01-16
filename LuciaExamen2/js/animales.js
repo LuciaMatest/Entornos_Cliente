@@ -23,10 +23,8 @@ const arrayAnimales = [
 ]
 
 // c) Escribir una función que reciba un array de animales (el creado en el apartado anterior) y devuelva un nodo lista desordenada (elemento UL) con la lista de los animales tal como se ve en la imagen.
-function listaAnimales() {
-    const listado = arrayAnimales.forEach((animales, especies, años) =>{
-        console.log(`${animales}(${especies}) vive unos ${años} años`);
-    })  
+function listaAnimales(arrayAnimales) {
+    return `${arrayAnimales.especie}(${arrayAnimales.grupo}) vive unos ${arrayAnimales.años} años`;
 }
 
 // d) Visualizar la lista de animales en el apartado correspondiente.
