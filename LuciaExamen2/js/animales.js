@@ -24,17 +24,17 @@ const arrayAnimales = [
 
 // c) Escribir una función que reciba un array de animales (el creado en el apartado anterior) y devuelva un nodo lista desordenada (elemento UL) con la lista de los animales tal como se ve en la imagen.
 function listaAnimales() {
-    const listado = arrayAnimales.forEach((especie, grupo, años) =>{
-        console.log(`${especie}(${grupo}) vive unos ${años} años`);
-    })
-    let ul = document.createElement('ul');
-    let li = document.createElement('li');
-    ul.appendChild(li);
-    div02.appendChild(ul);
+    const listado = arrayAnimales.forEach((animales, especies, años) =>{
+        console.log(`${animales}(${especies}) vive unos ${años} años`);
+    })  
 }
 
 // d) Visualizar la lista de animales en el apartado correspondiente.
+let ul = document.createElement('ul');
+let li = document.createElement('li');
 
+ul.appendChild(li);
+div02.appendChild(ul);
 // div02.appendChild(listadoAnimales);
 // e) Poner en el apartado ORDENAR un botón para cambiar la visualización de forma que cambie el listado (y su visualización) para que esté ordenado por nombre de especie.
 // f) Poner en el apartado ORDENAR un botón para cambiar la visualización de forma que cambie el listado para que esté ordenado por longevidad.
@@ -57,3 +57,6 @@ function extraerGrupos() {
 }
 
 // h) Utilizando la función del apartado anterior, mostrar en el apartado GRUPOS DE ANIMALES los nombres de los grupos que hay actualmente en la tabla de animales. Se recomienda hacerlo de la forma más sencilla, que será añadir al contenido del elemento DIV correspondiente el resultado del método toString() que tiene todo array
+let p = document.createElement('p');
+p.innerHTML= especies;
+div04.appendChild(p);
