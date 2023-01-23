@@ -1,0 +1,25 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "name": "Teclado",
+            "descrip": "Teclado mecánico Cherry ps/2"
+        },
+        {
+            "id": 2,
+            "name": "Webcam",
+            "descrip": "Cámara digital Exic"
+        },
+        {
+            "id": 3,
+            "name": "Ratón",
+            "descrip": "Ratón Dell MS116"
+        },
+        {
+            "id": 4,
+            "name": "Monitor",
+            "descrip": "Monitor Philips 14 pulgadas"
+        }
+    ]
+}
+    
