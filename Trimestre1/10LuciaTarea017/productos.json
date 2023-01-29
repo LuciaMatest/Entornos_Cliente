@@ -19,6 +19,11 @@
       "id": 4,
       "name": "Impresora",
       "descrip": "Impresora Canon Pixma"
+    },
+    {
+      "id": 5,
+      "name": "Ordenador",
+      "descrip": "Ordenador portatil Asus"
     }
   ]
 }
