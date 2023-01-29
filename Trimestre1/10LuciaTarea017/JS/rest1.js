@@ -11,7 +11,7 @@ window.addEventListener('load', ()=>{
             window.alert('Debe introducir un numero');
         } else {
             //Tratamos los errores con fetch
-            fetch(`${SERVER}/productos/${idProducto}`)
+            fetch(`${SERVER}/${idProducto}`)
             .then((response) => {
                 //Comprobamos si se ha resuelto
                 if (!response.ok) {
@@ -23,19 +23,21 @@ window.addEventListener('load', ()=>{
             })
             .then((datos) => {
                 //Procesamos los datos
-                let datosTabla = document.getElementById('datosTabla').innerHTML="";
+                document.getElementById('datosTabla');
                 let fila = document.createElement('tr');
 
                 let valorID = document.createElement('td');
                 valorID.appendChild(document.createTextNode(datos.id));
+                fila.appendChild(valorID);
 
                 let valorNombre = document.createElement('td');
                 valorNombre.appendChild(document.createTextNode(datos.name));
+                fila.appendChild(valorNombre);
 
                 let valorDescripcion = document.createElement('td');
                 valorDescripcion.appendChild(document.createTextNode(datos.descrip));
+                fila.appendChild(valorDescripcion);
 
-                fila.appendChild(valorID,valorNombre,valorDescripcion);
                 datosTabla.appendChild(fila);
             })
             .catch((error) => console.error(error));
@@ -48,14 +50,15 @@ window.addEventListener('load', ()=>{
     document.getElementById('crearProducto').addEventListener('submit', (evento)=>{
         //Cancelas la accion predeterminada
         evento.preventDefault();
+
         const nuevoProducto ={
             id: '',
             name: document.getElementById('name').value,
-            descrip: document.getElementById('descrip').value,
+            descrip: document.getElementById('descrip').value
         }
 
         //Petición POST
-        fetch(`${SERVER}/productos`, {
+        fetch(`${SERVER}`, {
             method: 'POST',
             body: JSON.stringify(nuevoProducto),
             headers:{
@@ -63,7 +66,7 @@ window.addEventListener('load', ()=>{
             }
         })
 
-        .then(response => {
+        .then((response) => {
             //Comprobamos si se ha resuelto
             if (!response.ok) {
                 //Lanzamos un error
@@ -74,8 +77,7 @@ window.addEventListener('load', ()=>{
         })
 
         .then(datos => {
-            window.alert('Datos recibidos')
-            console.log(datos)
+            window.alert('Datos recibidos');
         })
         .catch((error) => console.error(error));
     });
@@ -84,11 +86,11 @@ window.addEventListener('load', ()=>{
 
 window.addEventListener('load', ()=>{
     //Listar
-    document.getElementById('listar').addEventListener('submit', (evento) => {
+    document.getElementById('listar').addEventListener('click', (evento) => {
         //Cancelas la accion predeterminada
         evento.preventDefault();
         //Tratamos los errores con fetch
-        fetch(`${SERVER}/productos`)
+        fetch(`${SERVER}`)
         .then((response) => {
             //Comprobamos si se ha resuelto
             if (!response.ok) {
@@ -100,19 +102,21 @@ window.addEventListener('load', ()=>{
         })
         .then((datos) => {
             //Procesamos los datos
-            let datosTabla = document.getElementById('datosTabla').innerHTML="";
+            let datosTabla = document.getElementById('datosTabla');
             datos.forEach(element => {
                 let fila = document.createElement('tr');
                 let valorID = document.createElement('td');
                 valorID.appendChild(document.createTextNode(element['id']));
+                fila.appendChild(valorID);
 
                 let valorNombre = document.createElement('td');
                 valorNombre.appendChild(document.createTextNode(element['name']));
+                fila.appendChild(valorNombre);
 
                 let valorDescripcion = document.createElement('td');
                 valorDescripcion.appendChild(document.createTextNode(element['descrip']));
+                fila.appendChild(valorDescripcion);
 
-                fila.appendChild(valorID,valorNombre,valorDescripcion);
                 datosTabla.appendChild(fila);
             });
         })
