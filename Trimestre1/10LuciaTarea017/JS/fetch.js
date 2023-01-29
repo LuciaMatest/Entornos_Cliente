@@ -33,17 +33,20 @@ window.addEventListener('load', ()=>{
                 valorDescripcion.appendChild(document.createTextNode(element['descrip']));
                 fila.appendChild(valorDescripcion);
 
+                document.getElementById('datosTabla').appendChild(fila);
+
                 let modificar = document.createElement('td');
                 let btnmodificar = document.createElement('button');
                 btnmodificar.innerHTML='Modificar';
                 btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
-                btnmodificar.addEventListener('click', () => {
-                    alert('modificado')
-                })
                 modificar.appendChild(btnmodificar);
+                btnmodificar.addEventListener('click', () => {
+                    let padreBoton=this.parentNode;
+                    let objetivo=padreBoton.parentNode;
+                    document.getElementById('idMod').value=objetivo.children[0].innerHTML;
+                })
                 fila.appendChild(modificar);
 
-                document.getElementById('datosTabla').appendChild(fila);
             });
         })
         .catch((error) => console.error(error));
@@ -137,20 +140,56 @@ window.addEventListener('load', ()=>{
                 let valorDescripcion = document.createElement('td');
                 valorDescripcion.appendChild(document.createTextNode(datos.descrip));
                 fila.appendChild(valorDescripcion);
-                
+
+                document.getElementById('datosTabla').appendChild(fila);
+
                 let modificar = document.createElement('td');
                 let btnmodificar = document.createElement('button');
                 btnmodificar.innerHTML='Modificar';
                 btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
-                btnmodificar.addEventListener('click', () => {
-                    alert('modificado')
-                })
                 modificar.appendChild(btnmodificar);
+                btnmodificar.addEventListener('click', () => {
+                    let padreBoton=this.parentNode;
+                    let objetivo=padreBoton.parentNode;
+                    document.getElementById('idMod').value=objetivo.children[0].innerHTML;
+                })
                 fila.appendChild(modificar);
-
-                document.getElementById('datosTabla').appendChild(fila);
             })
             .catch((error) => console.error(error));
         }
+    });
+});
+
+window.addEventListener('load', ()=>{
+    //Buscar
+    document.getElementById('modificarProducto').addEventListener('submit', (evento)=>{
+        //Cancelas la accion predeterminada
+        evento.preventDefault();
+        const modProduc = {
+            name: document.getElementById('nameMod').value,
+            descrip: document.getElementById('descripMod').value
+        }
+        //Tratamos los errores con fetch
+        fetch(`${SERVER}/${document.getElementById("idMod").value}`, {
+            method: 'PATCH',
+            body: JSON.stringify(modProduc),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then((response) => {
+            //Comprobamos si se ha resuelto
+            if (!response.ok) {
+                //Lanzamos un error
+                throw `Error ${response.status} de la BBDD: ${response.statusText}`;
+            }
+            //Devolvemos los datos JSON
+            return response.json();
+        })
+        .then((datos) => {
+            alert("Datos modificados");
+            console.log(datos);
+        })
+        .catch((error)=>console.error(error));
     });
 });

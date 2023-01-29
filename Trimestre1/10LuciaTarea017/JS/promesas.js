@@ -33,10 +33,12 @@ window.addEventListener('load', ()=>{
                 let btnmodificar = document.createElement('button');
                 btnmodificar.innerHTML='Modificar';
                 btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
-                btnmodificar.addEventListener('click', () => {
-                    alert('modificado')
-                })
                 modificar.appendChild(btnmodificar);
+                btnmodificar.addEventListener('click', () => {
+                    let padreBoton=this.parentNode;
+                    let objetivo=padreBoton.parentNode;
+                    document.getElementById('idMod').value=objetivo.children[0].innerHTML;
+                })
                 fila.appendChild(modificar);
 
                 document.getElementById('datosTabla').appendChild(fila);
@@ -127,10 +129,12 @@ window.addEventListener('load', ()=>{
                 let btnmodificar = document.createElement('button');
                 btnmodificar.innerHTML='Modificar';
                 btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
-                btnmodificar.addEventListener('click', () => {
-                    alert('modificado')
-                })
                 modificar.appendChild(btnmodificar);
+                btnmodificar.addEventListener('click', () => {
+                    let padreBoton=this.parentNode;
+                    let objetivo=padreBoton.parentNode;
+                    document.getElementById('idMod').value=objetivo.children[0].innerHTML;
+                })
                 fila.appendChild(modificar);
 
                 document.getElementById('datosTabla').appendChild(fila);
@@ -143,6 +147,41 @@ window.addEventListener('load', ()=>{
 function getLista() {
     return new Promise((resolve, reject)=>{
         peticion.open('GET',`${SERVER}`, true);
+        peticion.send();
+        peticion.addEventListener('load', () => {
+            if (peticion.status === 200) {
+                resolve(JSON.parse(peticion.responseText));
+            } else {
+                reject(`Error ${peticion.status} (${peticion.statusText}) en la petición`);
+            }
+        })
+        peticion.addEventListener('error', () => reject('Error en la peticion HTTP'));
+    })
+};
+
+window.addEventListener('load', ()=>{
+    //Buscar
+    document.getElementById('modificarProducto').addEventListener('submit', (evento)=>{
+        //Cancelas la accion predeterminada
+        evento.preventDefault();
+        const idProducto = document.getElementById('idMod')
+        const modProduc = {
+            name: document.getElementById('nameMod').value,
+            descrip: document.getElementById('descripMod').value
+        }
+        modProd(idProducto,modProduc)
+        .then((datos) => {
+            alert("Datos modificados");
+            console.log(datos);
+        })
+        .catch((error)=>console.error(error));
+    });
+});
+
+function modProd(idProducto,modProduc) {
+    return new Promise((resolve, reject)=>{
+        peticion.open('PATCH',`${SERVER}/${idProducto}`, true);
+        peticion.setRequestHeader('Content-Type', 'application/json');
         peticion.send();
         peticion.addEventListener('load', () => {
             if (peticion.status === 200) {

@@ -2,8 +2,8 @@
   "productos": [
     {
       "id": 1,
-      "name": "Teclado",
-      "descrip": "Teclado mecánico Cherry ps/2"
+      "name": "Pantalla",
+      "descrip": "Pantalla Philips"
     },
     {
       "id": 2,
