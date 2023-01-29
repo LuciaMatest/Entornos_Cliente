@@ -17,13 +17,18 @@
     },
     {
       "id": 4,
-      "name": "Impresora",
-      "descrip": "Impresora Canon Pixma"
+      "name": "Fotocopiadora",
+      "descrip": "Impresora laser"
     },
     {
       "id": 5,
       "name": "Ordenador",
       "descrip": "Ordenador portatil Asus 15''"
+    },
+    {
+      "id": 6,
+      "name": "Teclado",
+      "descrip": "Teclado mecánico colores RGB"
     }
   ]
 }
