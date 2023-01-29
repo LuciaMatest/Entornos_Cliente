@@ -137,8 +137,18 @@ window.addEventListener('load', ()=>{
                 let valorDescripcion = document.createElement('td');
                 valorDescripcion.appendChild(document.createTextNode(datos.descrip));
                 fila.appendChild(valorDescripcion);
+                
+                let modificar = document.createElement('td');
+                let btnmodificar = document.createElement('button');
+                btnmodificar.innerHTML='Modificar';
+                btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
+                btnmodificar.addEventListener('click', () => {
+                    alert('modificado')
+                })
+                modificar.appendChild(btnmodificar);
+                fila.appendChild(modificar);
 
-                datosTabla.appendChild(fila);
+                document.getElementById('datosTabla').appendChild(fila);
             })
             .catch((error) => console.error(error));
         }
