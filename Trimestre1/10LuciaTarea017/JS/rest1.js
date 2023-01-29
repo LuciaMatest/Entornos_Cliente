@@ -1,6 +1,49 @@
 const SERVER="http://localhost:3000/productos";
 
 window.addEventListener('load', ()=>{
+    //Buscar
+    document.getElementById('buscarProducto').addEventListener('submit', (evento)=>{
+        //Cancelas la accion predeterminada
+        evento.preventDefault();
+        let idProducto = document.getElementById('id').value;
+        //Si el dato introducido no es un numero o esta vacio mostrar aviso
+        if (isNaN(idProducto) || idProducto == '') {
+            window.alert('Debe introducir un numero');
+        } else {
+            //Tratamos los errores con fetch
+            fetch(`${SERVER}/productos/${idProducto}`)
+            .then((response) => {
+                //Comprobamos si se ha resuelto
+                if (!response.ok) {
+                    //Lanzamos un error
+                    throw `Error ${response.status} de la BBDD: ${response.statusText}`;
+                }
+                //Devolvemos los datos JSON
+                return response.json();
+            })
+            .then((datos) => {
+                //Procesamos los datos
+                let datosTabla = document.getElementById('datosTabla').innerHTML="";
+                let fila = document.createElement('tr');
+
+                let valorID = document.createElement('td');
+                valorID.appendChild(document.createTextNode(datos.id));
+
+                let valorNombre = document.createElement('td');
+                valorNombre.appendChild(document.createTextNode(datos.name));
+
+                let valorDescripcion = document.createElement('td');
+                valorDescripcion.appendChild(document.createTextNode(datos.descrip));
+
+                fila.appendChild(valorID,valorNombre,valorDescripcion);
+                datosTabla.appendChild(fila);
+            })
+            .catch((error) => console.error(error));
+        }
+    });
+});
+
+window.addEventListener('load', ()=>{
     //Crear
     document.getElementById('crearProducto').addEventListener('submit', (evento)=>{
         //Cancelas la accion predeterminada
@@ -36,46 +79,10 @@ window.addEventListener('load', ()=>{
         })
         .catch((error) => console.error(error));
     });
-    //Buscar
-    document.getElementById('buscarProducto').addEventListener('submit', (evento)=>{
-        //Cancelas la accion predeterminada
-        evento.preventDefault();
-        let idProducto = document.getElementById('buscadorDatosTabla').value;
-        //Si el dato introducido no es un numero o esta vacio mostrar aviso
-        if (isNaN(idProducto) || idProducto == '') {
-            window.alert('Debe introducir un numero');
-        } else {
-            //Tratamos los errores con fetch
-            fetch(`${SERVER}/productos?id=${idProducto}`)
-            .then((response) => {
-                //Comprobamos si se ha resuelto
-                if (!response.ok) {
-                    //Lanzamos un error
-                    throw `Error ${response.status} de la BBDD: ${response.statusText}`;
-                }
-                //Devolvemos los datos JSON
-                return response.json();
-            })
-            .then((datos) => {
-                //Procesamos los datos
-                let datosTabla = document.getElementById('datosTabla').innerHTML="";
-                let fila = document.createElement('tr');
 
-                let valorID = document.createElement('td');
-                valorID.appendChild(document.createTextNode(datos.id));
+});
 
-                let valorNombre = document.createElement('td');
-                valorNombre.appendChild(document.createTextNode(datos.name));
-
-                let valorDescripcion = document.createElement('td');
-                valorDescripcion.appendChild(document.createTextNode(datos.descrip));
-
-                fila.appendChild(valorID,valorNombre,valorDescripcion);
-                datosTabla.appendChild(fila);
-            })
-            .catch((error) => console.error(error));
-        }
-    });
+window.addEventListener('load', ()=>{
     //Listar
     document.getElementById('listar').addEventListener('submit', (evento) => {
         //Cancelas la accion predeterminada
