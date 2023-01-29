@@ -28,18 +28,6 @@ window.addEventListener('load', ()=>{
                 let valorDescripcion = document.createElement('td');
                 valorDescripcion.appendChild(document.createTextNode(datos.descrip));
                 fila.appendChild(valorDescripcion);
-                
-                let modificar = document.createElement('td');
-                let btnmodificar = document.createElement('button');
-                btnmodificar.innerHTML='Modificar';
-                btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
-                modificar.appendChild(btnmodificar);
-                btnmodificar.addEventListener('click', () => {
-                    let padreBoton=this.parentNode;
-                    let objetivo=padreBoton.parentNode;
-                    document.getElementById('idMod').value=objetivo.children[0].innerHTML;
-                })
-                fila.appendChild(modificar);
 
                 document.getElementById('datosTabla').appendChild(fila);
             })
@@ -124,18 +112,6 @@ window.addEventListener('load', ()=>{
                 let valorDescripcion = document.createElement('td');
                 valorDescripcion.appendChild(document.createTextNode(element['descrip']));
                 fila.appendChild(valorDescripcion);
-
-                let modificar = document.createElement('td');
-                let btnmodificar = document.createElement('button');
-                btnmodificar.innerHTML='Modificar';
-                btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
-                modificar.appendChild(btnmodificar);
-                btnmodificar.addEventListener('click', () => {
-                    let padreBoton=this.parentNode;
-                    let objetivo=padreBoton.parentNode;
-                    document.getElementById('idMod').value=objetivo.children[0].innerHTML;
-                })
-                fila.appendChild(modificar);
 
                 document.getElementById('datosTabla').appendChild(fila);
             });

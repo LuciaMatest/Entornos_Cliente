@@ -35,17 +35,15 @@ window.addEventListener('load', ()=>{
 
                 document.getElementById('datosTabla').appendChild(fila);
 
-                let modificar = document.createElement('td');
-                let btnmodificar = document.createElement('button');
-                btnmodificar.innerHTML='Modificar';
-                btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
-                modificar.appendChild(btnmodificar);
-                btnmodificar.addEventListener('click', () => {
-                    let padreBoton=this.parentNode;
-                    let objetivo=padreBoton.parentNode;
-                    document.getElementById('idMod').value=objetivo.children[0].innerHTML;
-                })
-                fila.appendChild(modificar);
+                // let modificar = document.createElement('td');
+                // let btnmodificar = document.createElement('button');
+                // btnmodificar.innerHTML='Modificar';
+                // btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
+                // modificar.appendChild(btnmodificar);
+                // btnmodificar.addEventListener('click', () => {
+                //     console.log();
+                // })
+                // fila.appendChild(modificar);
 
             });
         })
@@ -142,18 +140,6 @@ window.addEventListener('load', ()=>{
                 fila.appendChild(valorDescripcion);
 
                 document.getElementById('datosTabla').appendChild(fila);
-
-                let modificar = document.createElement('td');
-                let btnmodificar = document.createElement('button');
-                btnmodificar.innerHTML='Modificar';
-                btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
-                modificar.appendChild(btnmodificar);
-                btnmodificar.addEventListener('click', () => {
-                    let padreBoton=this.parentNode;
-                    let objetivo=padreBoton.parentNode;
-                    document.getElementById('idMod').value=objetivo.children[0].innerHTML;
-                })
-                fila.appendChild(modificar);
             })
             .catch((error) => console.error(error));
         }
