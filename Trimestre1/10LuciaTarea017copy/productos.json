@@ -34,6 +34,16 @@
       "id": 7,
       "name": "Ratón",
       "descrip": "Ratón inalambrico"
+    },
+    {
+      "id": 8,
+      "name": "",
+      "descrip": ""
+    },
+    {
+      "id": 9,
+      "name": "",
+      "descrip": ""
     }
   ]
 }
