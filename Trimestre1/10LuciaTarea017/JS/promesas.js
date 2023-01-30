@@ -1,4 +1,6 @@
-const SERVER="http://192.168.0.214:3000/productos";
+// const SERVER="http://192.168.0.214:3000/productos";
+const SERVER="http://192.168.2.204:3000/productos";
+
 const peticion = new XMLHttpRequest();
 
 window.addEventListener('load', ()=>{
