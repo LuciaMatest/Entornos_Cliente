@@ -44,6 +44,11 @@
       "id": 9,
       "name": "",
       "descrip": ""
+    },
+    {
+      "id": 10,
+      "name": "Pantalla",
+      "descrip": "Pantalla philips 15''"
     }
   ]
 }
