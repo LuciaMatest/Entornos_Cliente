@@ -36,8 +36,7 @@ function renderCategory(categoria) {
     liCategoria.id = categoria.id;
     liCategoria.appendChild(document.createTextNode(categoria.name));
 
-    let olCategoria = document.getElementById('listados');
-    olCategoria.appendChild(liCategoria);
+    document.getElementById('listados').appendChild(liCategoria);
 }
 
 function renderProduct(producto) {
@@ -52,7 +51,7 @@ function renderProduct(producto) {
         let olProd2 = document.createElement('ol');
         olProd2.appendChild(liProducto)
     }
-    document.getElementById("1").appendChild(olProd1);
-    document.getElementById("2").appendChild(olProd2);
+    document.getElementById('listados').appendChild(olProd1);
+    document.getElementById('listados').appendChild(olProd2);
 }
 
