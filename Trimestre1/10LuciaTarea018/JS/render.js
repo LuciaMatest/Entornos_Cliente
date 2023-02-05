@@ -2,7 +2,7 @@ const SERVER = 'http://192.168.0.214:3000';
 
 window.addEventListener('load', ()=>{
     //Ordenar
-    document.getElementById('list').addEventListener('submit', async function(evento) {
+    document.getElementById('listar').addEventListener('click', async function(evento) {
         //Cancelas la accion predeterminada
         evento.preventDefault();
         //Pasamos un array de promesas
