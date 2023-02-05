@@ -1,0 +1,5 @@
+header, body {
+    background-color: gray;
+    background-image: url("./fondo.png");
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
