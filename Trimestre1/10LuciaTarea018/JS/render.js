@@ -1,4 +1,5 @@
-const SERVER = 'http://192.168.0.214:3000';
+// const SERVER = 'http://192.168.0.214:3000';
+const SERVER = 'http://192.168.2.204:3000';
 
 window.addEventListener('load', ()=>{
     //Ordenar
