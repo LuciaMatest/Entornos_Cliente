@@ -36,15 +36,15 @@ window.addEventListener('load', ()=>{
 
                 document.getElementById('datosTabla').appendChild(fila);
 
-                // let modificar = document.createElement('td');
-                // let btnmodificar = document.createElement('button');
-                // btnmodificar.innerHTML='Modificar';
-                // btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
-                // modificar.appendChild(btnmodificar);
-                // btnmodificar.addEventListener('click', () => {
-                //     console.log();
-                // })
-                // fila.appendChild(modificar);
+                let modificar = document.createElement('td');
+                let btnmodificar = document.createElement('button');
+                btnmodificar.innerHTML='Modificar';
+                btnmodificar.setAttribute('class','btn btn-outline-dark mx-2');
+                modificar.appendChild(btnmodificar);
+                btnmodificar.addEventListener('click', () => {
+                    console.log();
+                })
+                fila.appendChild(modificar);
 
             });
         })
@@ -152,7 +152,9 @@ window.addEventListener('load', ()=>{
     document.getElementById('modificarProducto').addEventListener('submit', (evento)=>{
         //Cancelas la accion predeterminada
         evento.preventDefault();
+        const id = document.getElementById("idMod").value;
         const modProduc = {
+            id: id,
             name: document.getElementById('nameMod').value,
             descrip: document.getElementById('descripMod').value
         }
