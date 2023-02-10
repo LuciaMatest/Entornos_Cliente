@@ -1,15 +1,53 @@
-const SERVER="http://192.168.2.204:3000";
+const SERVER="http://192.168.2.204:3000/";
 
-const botonRepartir= document.createElement('button');
-botonRepartir.innerHTML='Repartir';
+let arrayJugadores=['Jugador1','Jugador2','Jugador3','Jugador4'];
 
-window.addEventListener('load',()=>{
-    botonRepartir.addEventListener('click', async function (evento) {
+const btnRepartir= document.createElement('button');
+btnRepartir.innerHTML='Repartir';
+btnRepartir.id='repartir';
+
+window.addEventListener('load',async function(){
+    document.getElementById('repartir').addEventListener('click',async function(evento){
         //Cancelas la accion predeterminada
         evento.preventDefault();
-
-        
+        //Pasamos un array de promesas
+        const [jugador1,jugador2,jugador3,jugador4]= await Promise.all([
+            repartir('jugador1'),
+            repartir('jugador2'),
+            repartir('jugador3'),
+            repartir('jugador4'),
+        ])
     })
-});
+    //Procesamos los datos
+    jugador1.forEach((baraja) => renderJugador(baraja,arrayJugadores[0]));
+    jugador2.forEach((baraja) => renderJugador(baraja,arrayJugadores[1]));
+    jugador3.forEach((baraja) => renderJugador(baraja,arrayJugadores[2]));
+    jugador4.forEach((baraja) => renderJugador(baraja,arrayJugadores[3]));
+})
 
-document.getElementById('div03').appendChild(botonRepartir);
+async function repartir(jugador){
+        const response = await fetch(`${SERVER}${jugador}`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({estado:jugador })
+        })
+    
+
+    //Comprobamos si se ha resuelto
+    if (!response.ok) {
+        //Lanzamos un error
+        throw `Error ${response.status} de la BBDD: ${response.statusText}`;
+    }
+    //Devolvemos los datos JSON
+    const dato = await response.json()
+    return dato;  
+}
+
+//numero random
+function random(min,max) {
+    return Math.floor((Math.random() * max)+ min);
+}
+
+document.getElementById('div03').appendChild(btnRepartir);
