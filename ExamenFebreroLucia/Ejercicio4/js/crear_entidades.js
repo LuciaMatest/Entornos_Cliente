@@ -7,7 +7,7 @@ window.addEventListener('load',()=>{
     botonRepartir.addEventListener('click', async function (evento) {
         //Cancelas la accion predeterminada
         evento.preventDefault();
-
+        
         const [naipes] = await Promise.all([
             getMazo(naipes)
         ]);
