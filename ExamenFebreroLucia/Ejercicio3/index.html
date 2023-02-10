@@ -48,24 +48,20 @@
     </div>
     <div class="divSquare" id="div04" style="background-color: rgb(25, 204, 144);">
         (04) TAPETE (Naipes descartados)
-        <form id="forma">
+        <form id="forma" style="padding: 10px;">
             <label for="palo">Palo:</label><br>
-            <select name="palo" id="palo">
-                <option value="oros">Oros</option>
-                <option value="copas">Copas</option>
-                <option value="espadas">Espadas</option>
-                <option value="bastos">Bastos</option>
-              </select>
+            <select name="palo" id="palo" required>
+                <option value="0">Seleccione un palo</option>
+            </select>
             <br><label for="lugar">Lugar:</label><br>
-            <select name="lugar" id="lugar">
-                <option value="baraja">baraja</option>
-                <option value="descartes">Descartes</option>
-                <option value="jugador1">Jugador1</option>
-                <option value="jugador2">Jugador2</option>
-                <option value="jugador3">Jugador3</option>
-                <option value="jugador4">Jugador4</option>
-              </select>
+            <select name="lugar" id="lugar" required>
+                <option value="0">Seleccione un lugar</option>
+            </select><br><br>
+            <button id="btnElegir">Elegir</button>
         </form>
+        <p id="eleccion">
+            
+        </p>
     </div>
     <script src="js/crear_entidades.js"></script>
 </body>

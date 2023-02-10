@@ -1,13 +1,36 @@
-const SERVER="http://192.168.2.204:3000/";
+//array
+let arrayPalos=['OROS','COPAS','ESPADAS','BASTOS'];
+let arrayLugares=['Baraja','Descartes','Jugador1','Jugador2','Jugador3','Jugador4'];
 
-const boton= document.createElement('button');
-boton.innerHTML='Rellenar';
-let formulario=document.getElementById('forma');
+//Rellenar las optiones
+for (const palo of arrayPalos) {
+    let option=document.createElement('option');
+    option.innerHTML=palo;
+    option.value=palo;
+    document.getElementById("palo").appendChild(option);
+}
+for (const lugar of arrayLugares) {
+    let option=document.createElement('option');
+    option.innerHTML=lugar;
+    option.value=lugar;
+    document.getElementById("lugar").appendChild(option);
+}
 
-formulario.addEventListener('submit', function(evento) {
+//evento
+document.getElementById('forma').addEventListener('submit',function(evento){
+    //Cancelas la accion predeterminada
+    evento.preventDefault();
+    let valido=true;
+    const select= document.getElementById('forma').querySelectorAll("select[required]");
+    select.forEach(campo=>{
+        if (campo.value==="0") {
+            valido=false;
+        }
+    });
+    if (!valido) {
+        document.getElementById('eleccion').innerHTML='Debe seleccionar ambas opciones';
+    }else{
+        document.getElementById('eleccion').innerHTML=`Has elegido ${palo.value} de ${lugar.value}`;
+    }
     
 })
-
-document.getElementById('forma').appendChild(boton);
-
-document.getElementById('div04').innerHTML=`Ha elegido ${} de ${}`;
