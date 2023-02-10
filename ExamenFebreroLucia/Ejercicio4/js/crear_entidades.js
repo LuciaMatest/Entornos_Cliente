@@ -12,28 +12,27 @@ window.addEventListener('load',async function(){
         evento.preventDefault();
         //Pasamos un array de promesas
         const [jugador1,jugador2,jugador3,jugador4]= await Promise.all([
-            repartir('jugador1'),
-            repartir('jugador2'),
-            repartir('jugador3'),
-            repartir('jugador4'),
-        ])
+            repartirCartas('jugador1'),
+            repartirCartas('jugador2'),
+            repartirCartas('jugador3'),
+            repartirCartas('jugador4'),
+        ]);
+        //Procesamos los datos
+        jugador1.forEach((baraja) => renderJugador(baraja,arrayJugadores[0]));
+        jugador2.forEach((baraja) => renderJugador(baraja,arrayJugadores[1]));
+        jugador3.forEach((baraja) => renderJugador(baraja,arrayJugadores[2]));
+        jugador4.forEach((baraja) => renderJugador(baraja,arrayJugadores[3]));
     })
-    //Procesamos los datos
-    jugador1.forEach((baraja) => renderJugador(baraja,arrayJugadores[0]));
-    jugador2.forEach((baraja) => renderJugador(baraja,arrayJugadores[1]));
-    jugador3.forEach((baraja) => renderJugador(baraja,arrayJugadores[2]));
-    jugador4.forEach((baraja) => renderJugador(baraja,arrayJugadores[3]));
-})
+});
 
-async function repartir(jugador){
-        const response = await fetch(`${SERVER}${jugador}`,{
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({estado:jugador })
-        })
-    
+async function repartirCartas(jugador){
+    const datos = await fetch(`${SERVER}/naipes`, {
+        method: 'PATCH',
+        body: JSON.stringify(jugador),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
 
     //Comprobamos si se ha resuelto
     if (!response.ok) {
@@ -42,7 +41,14 @@ async function repartir(jugador){
     }
     //Devolvemos los datos JSON
     const dato = await response.json()
-    return dato;  
+    return dato;
+}
+
+function renderJugador(baraja) {
+    let parrafo=document.createElement('p');
+    let jugada=`${baraja.id} de ${baraja.palo} |`;
+    parrafo.innerHTML=jugada;
+    document.getElementById('divJugador').appendChild(parrafo);
 }
 
 //numero random
