@@ -1,4 +1,6 @@
-const SERVER="http://192.168.2.204:3000/";
+const SERVER="http://192.168.2.204:3000";
+
+const peticion = new XMLHttpRequest();
 
 const botonRepartir= document.createElement('button');
 botonRepartir.innerHTML='Repartir';
@@ -7,7 +9,7 @@ window.addEventListener('load',()=>{
     botonRepartir.addEventListener('click', async function (evento) {
         //Cancelas la accion predeterminada
         evento.preventDefault();
-        
+
         const [naipes] = await Promise.all([
             getMazo(naipes)
         ]);
