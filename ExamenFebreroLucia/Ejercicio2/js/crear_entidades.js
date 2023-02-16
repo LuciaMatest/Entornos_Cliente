@@ -13,9 +13,14 @@ window.addEventListener('load',()=>{
         evento.preventDefault();
 
         const [naipes] = await Promise.all([
-            getNaipes("naipes")
+            getNaipes("naipes"),
+            getMazo("naipes")
         ]);
-        postLugar("lugar");
+
+        const [lugar] = await Promise.all([
+          postLugar("lugar")
+      ]);
+        
 
         //ArrayPalos
         for await (const palo of arrayPalos) {
@@ -27,7 +32,7 @@ window.addEventListener('load',()=>{
         }
         //arrayValores
         for await (const palo of arrayPalos) {
-            for (const valor of arrayValores) {
+          for (const valor of arrayValores) {
               let nuevoCarta = {
                 id: "",
                 palo: palo,
@@ -39,7 +44,7 @@ window.addEventListener('load',()=>{
             }
         }
 
-        getMazo(naipes);
+        
     })
     
 });
@@ -88,7 +93,7 @@ async function postLugar(lugar) {
 
 async function anadirPalo(palo) {
     //Petición POST
-    fetch(`${SERVER}/palos`, {
+    fetch(`${SERVER}palos`, {
       method: "POST",
       body: JSON.stringify(palo),
       headers: {
@@ -113,7 +118,7 @@ async function anadirPalo(palo) {
 
 async function anadirNaipe(carta) {
     //Petición POST
-    fetch(`${SERVER}/naipes`, {
+    fetch(`${SERVER}naipes`, {
       method: "POST",
       body: JSON.stringify(carta),
       headers: {
