@@ -138,14 +138,11 @@ async function anadirNaipe(carta) {
 
 function getMazo(naipes) {
     let parrafo = document.createElement("p");
-  
     let texto = naipes.reduce(
       (cadena, carta) => (cadena += `${carta.carta} de ${carta.palo} | `)
     );
-  
     parrafo.appendChild(document.createTextNode(texto));
-  
-    document.getElementById("div04").appendChild(parrafo);
+    document.getElementById("div01").appendChild(parrafo);
 }
   
 
