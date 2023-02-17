@@ -44,7 +44,7 @@ window.addEventListener('load',()=>{
             }
         }
 
-        
+        naipes(arrayPalos,arrayValores);
     })
     
 });
@@ -149,6 +149,16 @@ function getMazo(naipes) {
     parrafo.appendChild(document.createTextNode(texto));
     document.getElementById("div01").appendChild(parrafo);
 }
-  
 
+function naipes(arrayPalos,arrayValores){
+  if (arrayPalos){
+    let cartas = arrayValores ;
+    for ( let i = 1; i <= 12; i++ ){
+      if (i != 8 && i != 9){
+        cartas.push(i +" de "+ arrayPalos);
+      }
+    }
+    document.getElementById("div01").appendChild(cartas);
+  }
+}
 document.getElementById('div03').appendChild(botonRellenar);
