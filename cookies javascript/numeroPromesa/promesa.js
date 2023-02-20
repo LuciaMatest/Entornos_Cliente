@@ -1,25 +1,22 @@
-function procesarNumero() {
-    return new Promise((resolve, reject) => {
-      const num = prompt("Ingrese un número:");
+function comprobarNumero() {
+    const numero = parseInt(document.getElementById("numero").value);
   
-      if (isNaN(num)) {
-        const mensajeError = "No ingresó un número válido";
-        console.error(mensajeError);
-        reject(mensajeError);
-      } else if (num % 2 === 0) {
-        resolve(num / 2);
+    return new Promise((resolve, reject) => {
+      if (numero % 2 === 0) {
+        const mitad = numero / 2;
+        resolve(mitad);
       } else {
-        const mensajeError = "El número es impar";
-        console.error(mensajeError);
-        reject(mensajeError);
+        const mensaje = "El número ingresado es impar";
+        reject(mensaje);
       }
     });
   }
   
-  procesarNumero()
-  .then(resultado => {
-    console.log("El resultado es " + resultado);
-  })
-  .catch(error => {
-    console.error("Error: " + error);
-  });
+document.getElementById("resultado").addEventListener("click", function() {
+    comprobarNumero().then(function(resultado) {
+        document.write("La mitad del número ingresado es: " + resultado);
+    }).catch(function(mensaje) {
+        document.write(mensaje);
+    });
+});
+  
